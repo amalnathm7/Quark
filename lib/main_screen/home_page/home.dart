@@ -334,13 +334,113 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
-                    height: 20,
+                    height: 10,
                   ),
 
-                  Container(
-                    height: screenHeight/4,
-                    width: screenWidth,
-                    color: Colors.white10,
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: screenHeight/4,
+                      width: screenWidth,
+                      color: Colors.white10,
+                      child: Column(
+                        children: [
+
+
+
+
+                          Container(
+                            height: screenHeight/20,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: screenHeight/80,
+                                      width: 2.5,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(2)
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text("Hourwise",style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          letterSpacing: .8
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+
+                                const Text("Max : 50kWh",style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 8,
+                                    letterSpacing: .8
+                                ),),
+
+                              ],
+                            ),
+                          ),
+
+                          
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Column(
+
+                                children: [
+                                  Container(
+                                    height: 100,
+                                    width: screenWidth/35,
+                                    color: Colors.black,
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                              Container(
+                                height: 100,
+                                width: screenWidth/35,
+                                color: Colors.black,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
 
                   Container(
@@ -361,7 +461,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     AnimatedContainer(
 
-                        duration: const Duration(seconds: 1),
+                        duration: const Duration(seconds: 2),
                       curve: Curves.fastLinearToSlowEaseIn,
                       height: notiClick?screenHeight/1.45:0,
                       width: screenWidth,
@@ -413,8 +513,8 @@ class _HomePageState extends State<HomePage> {
                                         width: screenWidth/3.5,
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.end,
-                                          children: [
-                                            const SizedBox(
+                                          children: const [
+                                            SizedBox(
                                               height: 20,
                                               width: 20,
                                               child: Icon(CupertinoIcons.clear,color: Colors.white,size: 14,),
