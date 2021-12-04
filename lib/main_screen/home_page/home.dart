@@ -173,13 +173,16 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ],
                                       ),
-                               
+                                        child: Icon(CupertinoIcons.chevron_down,size: 13,color: Colors.black.withOpacity(.6),),
                                     ),
                                   ],
                                 ),
                               ),
                             ],
                           ),
+                        ),
+                        Container(
+                          height: 10,
                         ),
                         Container(
                           height: 1.2,
@@ -212,13 +215,17 @@ class _HomePageState extends State<HomePage> {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text("Today",style: TextStyle(
-                                            fontSize:13,
+                                            fontSize:12,
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black.withOpacity(.3)
                                           ),),
 
-                                          Text("280.6 kWh",style: TextStyle(
-                                              fontSize:20,
+                                          Container(
+                                            height: 8,
+                                          ),
+
+                                          Text("28.6 kWh",style: TextStyle(
+                                              fontSize:18,
                                               fontWeight: FontWeight.bold,
                                               color: Colors.black.withOpacity(.9)
                                           ),),
@@ -232,7 +239,37 @@ class _HomePageState extends State<HomePage> {
                               Container(
                                 height: screenHeight/9,
                                 width: screenWidth/3,
-                                color: Colors.black,
+                                color: Colors.white,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    const Icon(Icons.bolt),
+                                    Padding(
+                                      padding: const EdgeInsets.only(left:8.0),
+                                      child: Column(
+                                        mainAxisAlignment:MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text("This Month",style: TextStyle(
+                                              fontSize:12,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black.withOpacity(.3)
+                                          ),),
+
+                                          Container(
+                                            height: 8,
+                                          ),
+
+                                          Text("560.6 kWh",style: TextStyle(
+                                              fontSize:18,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black.withOpacity(.9)
+                                          ),),
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
 
                             ],
