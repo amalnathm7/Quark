@@ -15,17 +15,17 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   //Primary Color
-  //used in Button,Button Shadow
-  Color p1Color = Colors.cyanAccent;
+  //Used in Button, Button Shadow
+  Color p1Color = Colors.grey[700]!;
 
   //Used as Container Color
   Color p2Color = Colors.white;
 
-  //Screen Background [ Bluish ]
+  //Screen Background [Bluish]
   Color p3Color = const Color(0xFFf1f7fc);
 
-  //Used In Referl Text
-  Color p4Color = const Color(0xFF5ce1e6);
+  //Used In Quark Text
+  Color p4Color = Colors.grey[900]!;
 
   //For Manipulating Password Hiding
   bool passIcon = true;
@@ -99,6 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ],
                                 image: const DecorationImage(
                                   image: AssetImage("assets/logo.png"),
+                                  fit: BoxFit.cover,
                                 )),
                           ),
                           Padding(
@@ -112,16 +113,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                     "Login To",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
+
                                         color: Colors.grey,
                                         fontSize: 20,
                                         letterSpacing: 1.2),
                                   ),
                                   Text(
-                                    " Referl",
+                                    " Quark",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       color: p4Color,
-                                      fontSize: 20,
+                                      fontSize: 22,
                                       letterSpacing: 1.2,
                                     ),
                                   )
@@ -412,7 +414,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const BorderRadius.all(Radius.circular(4.0)),
                       boxShadow: [
                         BoxShadow(
-                            color: Colors.cyanAccent.withOpacity(.3),
+                            color: p4Color.withOpacity(.3),
                             spreadRadius: 5,
                             blurRadius: 30,
                             offset: const Offset(1, 1))
@@ -485,10 +487,10 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: ButtonStyle(
                         elevation: MaterialStateProperty.all(0),
                         overlayColor: MaterialStateProperty.all(
-                            Colors.teal.withOpacity(.3)),
+                            p4Color),
                         backgroundColor: MaterialStateProperty.all(
-                            const Color(0xFF5ce1e6)),
-                        shadowColor: MaterialStateProperty.all(p1Color),
+                            p4Color),
+                        shadowColor: MaterialStateProperty.all(p4Color),
                         shape: MaterialStateProperty.all(
                             const RoundedRectangleBorder(
                                 borderRadius: BorderRadius.all(
