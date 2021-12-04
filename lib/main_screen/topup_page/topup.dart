@@ -124,6 +124,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                             width: 300,
                             padding: const EdgeInsets.only(left: 15),
                             child: TextField(
+                              autofocus: true,
                               decoration: InputDecoration(
                                 hintText: "Enter amount (in Rs.)",
                                 contentPadding: const EdgeInsets.only(left: 20),
