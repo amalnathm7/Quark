@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quark/login_screen/login_page.dart';
 import 'package:quark/main_screen/home_page/home.dart';
+import 'package:quark/nav_screen/bottomnav.dart';
 import 'package:quark/splash_screen/splash.dart';
 
 void main() async {
@@ -32,8 +33,7 @@ class MyApp extends StatelessWidget {
                   snapshot.connectionState == ConnectionState.waiting
               ? const Splash()
               : snapshot.hasData
-                  ? const HomePage()
-                  : const LoginScreen();
+                  ? const NavBarNew(): const LoginScreen();
         },
       ),
     );
