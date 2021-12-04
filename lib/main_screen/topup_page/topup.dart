@@ -15,37 +15,37 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
   bool _searchClicked = false;
   List monthlyPlans = [
     {
-      'amount': 100,
+      'amount': 200,
       'details': 'Average 5 units per day at 120V.',
       'validity': 28,
       'credits': 140,
     },
     {
-      'amount': 250,
+      'amount': 350,
       'details': 'Average 10 units per day at 120V.',
       'validity': 28,
       'credits': 280,
     },
     {
-      'amount': 200,
+      'amount': 400,
       'details': 'Average 5 units per day at 120V.',
       'validity': 56,
       'credits': 280,
     },
     {
-      'amount': 500,
+      'amount': 700,
       'details': 'Average 10 units per day at 120V.',
       'validity': 56,
       'credits': 560,
     },
     {
-      'amount': 300,
+      'amount': 600,
       'details': 'Average 5 units per day at 120V.',
       'validity': 84,
       'credits': 420,
     },
     {
-      'amount': 750,
+      'amount': 1050,
       'details': 'Average 10 units per day at 120V.',
       'validity': 84,
       'credits': 840,
@@ -54,13 +54,13 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
 
   List recommendedPlans = [
     {
-      'amount': 100,
+      'amount': 200,
       'details': 'Average 5 units per day at 120V.',
       'validity': 28,
       'credits': 140,
     },
     {
-      'amount': 200,
+      'amount': 400,
       'details': 'Average 5 units per day at 120V.',
       'validity': 56,
       'credits': 280,
@@ -69,28 +69,28 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
 
   List addonPlans = [
     {
-      'amount': 25,
+      'amount': 50,
+      'details': '25 units add-on credits at 120V.',
+      'validity': 'Base plan',
+      'credits': 25,
+    },
+    {
+      'amount': 120,
       'details': '50 units add-on credits at 120V.',
       'validity': 'Base plan',
       'credits': 50,
     },
     {
-      'amount': 50,
-      'details': '50 units add-on credits at 120V.',
+      'amount': 250,
+      'details': '100 units add-on credits at 120V.',
       'validity': 'Base plan',
       'credits': 100,
     },
     {
-      'amount': 75,
-      'details': '50 units add-on credits at 120V.',
+      'amount': 600,
+      'details': '200 units add-on credits at 120V.',
       'validity': 'Base plan',
       'credits': 200,
-    },
-    {
-      'amount': 100,
-      'details': '50 units add-on credits at 120V.',
-      'validity': 'Base plan',
-      'credits': 300,
     },
   ];
 
@@ -119,43 +119,40 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    AnimatedSwitcher(
-                      duration: const Duration(milliseconds: 200),
-                      child: _searchClicked
-                          ? Container(
-                              width: 300,
-                              padding: const EdgeInsets.only(left: 0),
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  hintText: "Enter amount (in Rs.)",
-                                  contentPadding:
-                                      const EdgeInsets.only(left: 20),
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.grey[300]!)),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Colors.grey[700]!)),
-                                ),
-                                keyboardType: TextInputType.number,
+                    _searchClicked
+                        ? Container(
+                            width: 300,
+                            padding: const EdgeInsets.only(left: 15),
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: "Enter amount (in Rs.)",
+                                contentPadding: const EdgeInsets.only(left: 20),
+                                enabledBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.grey[300]!)),
+                                focusedBorder: OutlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.grey[700]!)),
                               ),
-                            )
-                          : SizedBox(
-                              width: 200,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 15),
-                                child: Text(
-                                  "Recharge Plans for " + _user.displayName!,
-                                  style: const TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 24,
-                                    overflow: TextOverflow.clip,
-                                  ),
+                              keyboardType: TextInputType.number,
+                            ),
+                          )
+                        : SizedBox(
+                            width: 200,
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 15),
+                              child: Text(
+                                "Recharge Plans for " + _user.displayName!,
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
+                                  overflow: TextOverflow.clip,
                                 ),
                               ),
                             ),
-                    ),
+                          ),
                     Padding(
                       padding: const EdgeInsets.only(
                         right: 20,
