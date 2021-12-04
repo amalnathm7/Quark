@@ -150,7 +150,7 @@ class ProfilePageState extends State<ProfilePage>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
                   Text(
-                    "Save Energy\nFor All Life\n\n💡",
+                    "Save Energy\nFor All Life\n\n💡💡💡",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14,
