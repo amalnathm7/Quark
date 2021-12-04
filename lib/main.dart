@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quark/login_screen/login_page/login.dart';
+import 'package:quark/main_screen/home_page/home.dart';
 import 'package:quark/nav_screen/bottomnav.dart';
 
 void main() {
@@ -73,11 +74,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const BottomNav(
-                        )));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const HomePage()));
               },
               child: const Text("home"),
             ),
