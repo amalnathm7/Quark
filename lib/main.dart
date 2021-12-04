@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quark/login_screen/login_page/login.dart';
+import 'package:quark/nav_screen/bottomnav.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,8 +42,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -62,17 +61,28 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            ElevatedButton(onPressed: (){
-              //
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
-            }, child: const Text("login"),),
-            ElevatedButton(onPressed: (){
-
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>const LoginScreen()));
-            }, child: const Text("home"),),
+            ElevatedButton(
+              onPressed: () {
+                //
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LoginScreen()));
+              },
+              child: const Text("login"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const BottomNav()));
+              },
+              child: const Text("home"),
+            ),
           ],
         ),
-      ),// This trailing comma makes auto-formatting nicer for build methods.
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
