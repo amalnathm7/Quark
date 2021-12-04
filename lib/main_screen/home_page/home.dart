@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
+import 'package:lottie/lottie.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -65,47 +66,82 @@ class _HomePageState extends State<HomePage> {
                     Padding(
                       padding: const EdgeInsets.only(right: 15.0),
                       child: Container(
-                        height: 50,
-                        width:50,
-                        decoration:  BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withOpacity(.3),
-                              blurRadius: 60,
-                              spreadRadius: 1,
+                        height: 60,
+                        width: 60,
+                        color: Colors.transparent,
+                        child: Stack(
+                          children: [
 
-                            ),
-                          ]
-                        ),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
 
-                            Container(
-                            height: 43,
-                            width:43,
-                            decoration:  BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.circular(15),
-                                color: Colors.red,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black.withOpacity(.15),
-                                    blurRadius: 60,
-                                    spreadRadius: 1,
+
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width:50,
+                                  decoration:  BoxDecoration(
+                                    shape: BoxShape.rectangle,
+                                    borderRadius: BorderRadius.circular(15),
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.3),
+                                        blurRadius: 60,
+                                        spreadRadius: 1,
+
+                                      ),
+                                    ]
                                   ),
-                                ]
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+
+                                      Container(
+                                      height: 43,
+                                      width:43,
+                                      decoration:  BoxDecoration(
+                                          shape: BoxShape.rectangle,
+                                          borderRadius: BorderRadius.circular(15),
+                                          color: Colors.red,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.black.withOpacity(.15),
+                                              blurRadius: 60,
+                                              spreadRadius: 1,
+                                            ),
+                                          ]
+                                      ),
+                                        child: ClipRRect(
+                                            borderRadius: BorderRadius.circular(15),
+                                            child: Image.network("https://images.pexels.com/photos/3031397/pexels-photo-3031397.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",fit: BoxFit.cover,)),
+                                      ),
+                                      ],
+                                    )
+                                ),
+                              ],
                             ),
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.network("https://images.pexels.com/photos/3031397/pexels-photo-3031397.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",fit: BoxFit.cover,)),
+
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: 25,
+                                  width: 25,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.transparent,
+                                  ),
+                                  child: Lottie.network("https://assets8.lottiefiles.com/private_files/lf30_spmses83.json"),
+                                )
+                              ],
                             ),
-                            ],
-                          )
+                          ],
+                        ),
                       ),
                     ),
                   ],
@@ -281,17 +317,23 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-
               Container(
-                height: screenHeight/3,
-                width: screenWidth,
-                color: Colors.white,
+                height: 20,
               ),
 
               Container(
-                height: screenHeight/3,
+                height: screenHeight/4,
                 width: screenWidth,
-                color: Colors.grey,
+                color: Colors.white10,
+              ),
+
+              Container(
+                height: screenHeight/5,
+                width: screenWidth,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(.05),
+                  borderRadius: BorderRadius.circular(12),
+                ),
               ),
             ],
           ),
