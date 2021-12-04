@@ -14,6 +14,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   bool notiClick = false;
+  bool graphAni = false;
+
+
+
 
 
   @override
@@ -389,109 +393,129 @@ class _HomePageState extends State<HomePage> {
 
 
                           Container(
-                            height: screenHeight/7.7,
+                            height: screenHeight/7.1,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Column(
-
-                                  children: [
-                                    Container(
-                                      height: screenHeight/7.7,
-                                      width: screenWidth/35,
+                                Container(
+                                  height: (screenHeight/7.7)*(20/50),
+                                  width: screenWidth/40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(.2),
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(40/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(35/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(15/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
                                       color: Colors.black,
-                                    ),
-                                  ],
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
                                 ),
                                 Container(
-                                  height: screenHeight/7.7,
+                                  height: (screenHeight/7.7)*(30/50),
                                   width: screenWidth/35,
-                                  color: Colors.black,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
                                 ),
                                 Container(
-                                  height: screenHeight/7.7,
+                                  height: 3,
                                   width: screenWidth/35,
-                                  color: Colors.black,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
                                 ),
                                 Container(
-                                  height: screenHeight/7.7,
+                                  height: 3,
                                   width: screenWidth/35,
-                                  color: Colors.black,
-                                ),
-                                Container(
-                                  height: screenHeight/7.7,
-                                  width: screenWidth/35,
-                                  color: Colors.black,
-                                ),
-                                Container(
-                                  height: screenHeight/7.7,
-                                  width: screenWidth/35,
-                                  color: Colors.black,
-                                ),
-                                Container(
-                                  height: screenHeight/7.7,
-                                  width: screenWidth/35,
-                                  color: Colors.black,
-                                ),
-                                Container(
-                                  height: screenHeight/7.7,
-                                  width: screenWidth/35,
-                                  color: Colors.black,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
                                 ),
                               ],
                             ),
                           ),
 
-                          Container(
+                          SizedBox(
                             height: screenHeight/17,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
 
                                 Text("0",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("3",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("6",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("9",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("12",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("15",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("18",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
 
                                 Text("21",style: TextStyle(
-                                  color: Colors.black,
+                                  color: Colors.black.withOpacity(.5),
                                   fontSize: 11,
                                   fontWeight: FontWeight.bold,
                                 ),),
