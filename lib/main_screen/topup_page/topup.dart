@@ -21,7 +21,7 @@ class _TopUpPageState extends State<TopUpPage> {
             left: 10,
             child: Text(
               "Recharge for " + _user.displayName!,
-              style: const TextStyle(color: Colors.black, fontSize: 18),
+              style: const TextStyle(color: Colors.black, fontSize: 20),
             ),
           )
         ],
