@@ -90,8 +90,8 @@ class _NavBarNewState extends State<NavBarNew> {
                 });
               },
               child: _selectedIndex == 1
-                  ? const Icon(CupertinoIcons.square_favorites_fill)
-                  : const Icon(CupertinoIcons.square_favorites),
+                  ? const Icon(CupertinoIcons.bag_fill)
+                  : const Icon(CupertinoIcons.bag),
             ),
             NeumorphicButton(
               style: NeumorphicStyle(
@@ -115,8 +115,8 @@ class _NavBarNewState extends State<NavBarNew> {
                 });
               },
               child: _selectedIndex == 2
-                  ? const Icon(CupertinoIcons.square_favorites_alt_fill)
-                  : const Icon(CupertinoIcons.square_favorites_alt),
+                  ? const Icon(CupertinoIcons.car_fill)
+                  : const Icon(CupertinoIcons.car_detailed),
             ),
             NeumorphicButton(
               style: NeumorphicStyle(
@@ -142,11 +142,11 @@ class _NavBarNewState extends State<NavBarNew> {
               },
               child: _selectedIndex == 3
                   ? const Icon(
-                      CupertinoIcons.group_solid,
+                      CupertinoIcons.person_solid,
                       size: 27,
                     )
                   : const Icon(
-                      CupertinoIcons.group,
+                      CupertinoIcons.person,
                       size: 27,
                     ),
             ),
