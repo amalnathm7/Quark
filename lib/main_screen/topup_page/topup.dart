@@ -147,7 +147,9 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                               left: 20,
                             ),
                             child: Text(
-                              "Recharge Plans\nfor " + _user.displayName!,
+                              _user.displayName == null
+                                  ? "Recharge Plans\nfor " + _user.email!
+                                  : "Recharge Plans\nfor " + _user.displayName!,
                               textAlign: TextAlign.start,
                               style: const TextStyle(
                                 color: Colors.black,
