@@ -14,6 +14,10 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   bool notiClick = false;
+  bool graphAni = false;
+
+
+
 
 
   @override
@@ -334,13 +338,193 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   Container(
-                    height: 20,
+                    height: 10,
                   ),
 
-                  Container(
-                    height: screenHeight/4,
-                    width: screenWidth,
-                    color: Colors.white10,
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      height: screenHeight/4,
+                      width: screenWidth,
+                      color: Colors.white10,
+                      child: Column(
+                        children: [
+
+
+
+
+                          Container(
+                            height: screenHeight/20,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Container(
+                                      height: screenHeight/80,
+                                      width: 2.5,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: BorderRadius.circular(2)
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.only(left: 8.0),
+                                      child: Text("Hourwise",style: TextStyle(
+                                          color: Colors.black,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 12,
+                                          letterSpacing: .8
+                                      ),),
+                                    ),
+                                  ],
+                                ),
+
+                                const Text("Max : 50kWh",style: TextStyle(
+                                    color: Colors.grey,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 8,
+                                    letterSpacing: .8
+                                ),),
+
+                              ],
+                            ),
+                          ),
+
+
+                          Container(
+                            height: screenHeight/7.1,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Container(
+                                  height: (screenHeight/7.7)*(20/50),
+                                  width: screenWidth/40,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(.2),
+                                    borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(40/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(35/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(15/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black,
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: (screenHeight/7.7)*(30/50),
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: 3,
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                                Container(
+                                  height: 3,
+                                  width: screenWidth/35,
+                                  decoration: BoxDecoration(
+                                      color: Colors.black.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(10)
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          SizedBox(
+                            height: screenHeight/17,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+
+                                Text("0",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("3",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("6",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("9",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("12",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("15",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("18",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("21",style: TextStyle(
+                                  color: Colors.black.withOpacity(.5),
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
 
                   Container(
@@ -361,9 +545,9 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     AnimatedContainer(
 
-                        duration: const Duration(seconds: 1),
+                        duration: const Duration(seconds: 2),
                       curve: Curves.fastLinearToSlowEaseIn,
-                      height: notiClick?0:screenHeight/1.45,
+                      height: notiClick?screenHeight/1.45:0,
                       width: screenWidth,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -403,24 +587,24 @@ class _HomePageState extends State<HomePage> {
                                       letterSpacing: .7
                                     ),),
 
-                                    SizedBox(
-                                      width: screenWidth/3.5,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          InkWell(
-                                            onTap:(){
-                                              setState(() {
-                                                notiClick = false;
-                                              });
-                                            },
-                                            child: const SizedBox(
+                                    InkWell(
+                                      onTap:(){
+                                        setState(() {
+                                          notiClick = false;
+                                        });
+                                      },
+                                      child: SizedBox(
+                                        width: screenWidth/3.5,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: const [
+                                            SizedBox(
                                               height: 20,
                                               width: 20,
                                               child: Icon(CupertinoIcons.clear,color: Colors.white,size: 14,),
-                                            ),
-                                          )
-                                        ],
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
