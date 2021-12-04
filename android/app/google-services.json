@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "729361947808",
+    "project_id": "gryffindor-cbaa2",
+    "storage_bucket": "gryffindor-cbaa2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729361947808:android:6186ea3e7095793986bdc5",
+        "android_client_info": {
+          "package_name": "com.gryffindor.quark"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729361947808-50do9q5agsl0rm0kk46n49o1mfijfhbb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.gryffindor.quark",
+            "certificate_hash": "1a2785e2022888cf98335a76d55901f89934622a"
+          }
+        },
+        {
+          "client_id": "729361947808-l0qr4f3ec9btkp9f9ljqp8ufk0b4m4kr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCT5oE1fIvPHrY5LuyRtELIe_zhAchLsfA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729361947808-l0qr4f3ec9btkp9f9ljqp8ufk0b4m4kr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
