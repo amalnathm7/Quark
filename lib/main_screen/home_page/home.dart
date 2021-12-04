@@ -640,6 +640,50 @@ class _HomePageState extends State<HomePage> {
                     curve: Curves.fastLinearToSlowEaseIn,
                     child: Stack(
                       children: [
+
+
+
+
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(left: 15.0,top:10),
+                              child: Container(
+                                height:100,
+                                width: 100,
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Colors.white.withOpacity(.4)
+                                ),
+                              ),
+                            ),
+
+
+
+
+                          ],
+                        ),
+
+                        Padding(
+                          padding: const EdgeInsets.only(left: 10.0,top:5),
+                          child: Container(
+                            height:40,
+                            width: 40,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white.withOpacity(.7)
+                            ),
+                          ),
+                        ),
+
+
+
+
+
+
+
+
                         Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
@@ -678,11 +722,11 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                                 Container(
-                                  height: 7,
+                                  height: 30,
                                   width: screenWidth/2,
                                   decoration: BoxDecoration(
                                     color: Colors.black.withOpacity(.09),
-                                    borderRadius: BorderRadius.circular(10)
+                                    borderRadius: BorderRadius.circular(8)
                                   ),
                                   child: Stack(
                                     children: [
@@ -690,11 +734,11 @@ class _HomePageState extends State<HomePage> {
                                         mainAxisAlignment: MainAxisAlignment.end,
                                         children: [
                                           Container(
-                                            height: 7,
+                                            height: 30,
                                             width: (((screenWidth/2)/1725)*(1500*(15)/100)),
                                             decoration: BoxDecoration(
-                                                color: Colors.red,
-                                                borderRadius: BorderRadius.circular(10)
+                                                color: Colors.red.withOpacity(.8),
+                                                borderRadius: BorderRadius.circular(8)
                                             ),
                                           ),
                                         ],
@@ -706,25 +750,33 @@ class _HomePageState extends State<HomePage> {
                                           AnimatedContainer(
                                             duration: Duration(seconds: 2),
                                             curve: Curves.fastLinearToSlowEaseIn,
-                                            height: 7,
-                                            width: graphAni?(((screenWidth/2)/1725)*500):0,
+                                            height: 30,
+                                            width: graphAni?(((screenWidth/2)/1725)*1000):0,
                                             decoration: BoxDecoration(
                                                 color: Colors.black,
-                                                borderRadius: BorderRadius.circular(10)
+                                                borderRadius: BorderRadius.circular(8),
+                                              boxShadow: [
+                                                BoxShadow(
+                                                  color: Colors.black.withOpacity(.2),
+                                                  spreadRadius: 1,
+                                                  blurRadius: 10,
+                                                ),
+                                              ],
                                             ),
                                             child: Padding(
-                                              padding: const EdgeInsets.only(right:2.0),
+                                              padding: const EdgeInsets.only(right:10.0),
                                               child: Row(
                                                 mainAxisAlignment: MainAxisAlignment.end,
                                                 children: [
                                                   AnimatedContainer(
                                                     duration: Duration(seconds: 5),
                                                     curve: Curves.fastLinearToSlowEaseIn,
-                                                    height:graphAni? 5:0,
-                                                    width: graphAni?5:0,
+                                                    height:graphAni? 20:0,
+                                                    width: graphAni?10:0,
                                                     decoration: BoxDecoration(
                                                       color: Colors.white,
-                                                      shape: BoxShape.circle,
+                                                      shape: BoxShape.rectangle,
+                                                      borderRadius: BorderRadius.circular(3)
                                                     ),
                                                   ),
                                                 ],
@@ -756,18 +808,47 @@ class _HomePageState extends State<HomePage> {
                               ),
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: const [
+                                children:  [
                                   Text("Plan 444",style: TextStyle(
                                     fontSize: 13,
                                     fontWeight: FontWeight.bold,
-
+                                    letterSpacing: .8,
                                     color: Colors.black,
-                                  ),)
+                                  ),),
+                                  Container(
+                                    height: screenHeight/40,
+                                    width: 2,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(.4),
+                                      borderRadius: BorderRadius.circular(15)
+                                    ),
+                                  ),
+
+                                  Container(
+                                    height: screenHeight/30,
+                                    width: screenWidth/2,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey.withOpacity(.2),
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Text("Validity  :  23 Dec 2021",style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 10,
+                                          color: Colors.black.withOpacity(.8),
+                                        ),)
+                                      ],
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
                           ],
                         ),
+
+
                       ],
                     ),
                   ),
