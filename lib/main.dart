@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quark/login_screen/login_page.dart';
 import 'package:quark/main_screen/home_page/home.dart';
 import 'package:quark/splash_screen/splash.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
+        textTheme: GoogleFonts.poppinsTextTheme(),
       ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
