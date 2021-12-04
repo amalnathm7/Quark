@@ -387,56 +387,116 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
 
-                          
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
 
-                                children: [
-                                  Container(
-                                    height: 100,
-                                    width: screenWidth/35,
-                                    color: Colors.black,
-                                  ),
-                                ],
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                              Container(
-                                height: 100,
-                                width: screenWidth/35,
-                                color: Colors.black,
-                              ),
-                            ],
+                          Container(
+                            height: screenHeight/7.7,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Column(
+
+                                  children: [
+                                    Container(
+                                      height: screenHeight/7.7,
+                                      width: screenWidth/35,
+                                      color: Colors.black,
+                                    ),
+                                  ],
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                                Container(
+                                  height: screenHeight/7.7,
+                                  width: screenWidth/35,
+                                  color: Colors.black,
+                                ),
+                              ],
+                            ),
+                          ),
+
+                          Container(
+                            height: screenHeight/17,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+
+                                Text("0",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("3",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("6",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("9",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("12",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("15",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("18",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+
+                                Text("21",style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 11,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+                              ],
+                            ),
                           ),
                         ],
                       ),
