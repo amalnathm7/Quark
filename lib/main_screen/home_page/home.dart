@@ -1,5 +1,4 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
@@ -13,6 +12,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  
 
 
   @override
@@ -43,14 +44,14 @@ class _HomePageState extends State<HomePage> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children:  const [
-                          Text("Welcome Dinoy",style: TextStyle(
+                        children:  [
+                          Text("Welcome "+FirebaseAuth.instance.currentUser!.displayName!,style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 25,
                             letterSpacing: .8,
                           ),),
 
-                          Text("Always Save on using energy",style: TextStyle(
+                          const Text("Always Save on using energy",style: TextStyle(
                             fontSize: 10,
                             letterSpacing: .8,
                             fontWeight: FontWeight.bold,
@@ -78,48 +79,51 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  height: 50,
-                                  width:50,
-                                  decoration:  BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    borderRadius: BorderRadius.circular(15),
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(.3),
-                                        blurRadius: 60,
-                                        spreadRadius: 1,
+                                InkWell(
 
-                                      ),
-                                    ]
-                                  ),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      children: [
+                                  child: Container(
+                                    height: 50,
+                                    width:50,
+                                    decoration:  BoxDecoration(
+                                      shape: BoxShape.rectangle,
+                                      borderRadius: BorderRadius.circular(15),
+                                      color: Colors.white,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Colors.black.withOpacity(.3),
+                                          blurRadius: 60,
+                                          spreadRadius: 1,
 
-                                      Container(
-                                      height: 43,
-                                      width:43,
-                                      decoration:  BoxDecoration(
-                                          shape: BoxShape.rectangle,
-                                          borderRadius: BorderRadius.circular(15),
-                                          color: Colors.red,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Colors.black.withOpacity(.15),
-                                              blurRadius: 60,
-                                              spreadRadius: 1,
-                                            ),
-                                          ]
-                                      ),
-                                        child: ClipRRect(
+                                        ),
+                                      ]
+                                    ),
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+
+                                        Container(
+                                        height: 43,
+                                        width:43,
+                                        decoration:  BoxDecoration(
+                                            shape: BoxShape.rectangle,
                                             borderRadius: BorderRadius.circular(15),
-                                            child: Image.network("https://images.pexels.com/photos/3031397/pexels-photo-3031397.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",fit: BoxFit.cover,)),
-                                      ),
-                                      ],
-                                    )
+                                            color: Colors.red,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black.withOpacity(.15),
+                                                blurRadius: 60,
+                                                spreadRadius: 1,
+                                              ),
+                                            ]
+                                        ),
+                                          child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(15),
+                                              child: Image.network("https://images.pexels.com/photos/3031397/pexels-photo-3031397.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",fit: BoxFit.cover,)),
+                                        ),
+                                        ],
+                                      )
+                                  ),
                                 ),
                               ],
                             ),
