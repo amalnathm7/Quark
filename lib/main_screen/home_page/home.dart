@@ -636,30 +636,137 @@ class _HomePageState extends State<HomePage> {
                       // ),
                       borderRadius: BorderRadius.circular(12),
                     ),
-                    duration: Duration(seconds: 2),
+                    duration: const Duration(seconds: 2),
                     curve: Curves.fastLinearToSlowEaseIn,
                     child: Stack(
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0, top: 10),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    child: Text(
-                                      "500",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 60,
-                                          color: Colors.black),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      height: screenHeight/9,
+                                      width: screenWidth/3.4,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: const [
+                                          Text(
+                                            "500",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 55,
+                                                color: Colors.black),
+                                          ),
+                                          Text(
+                                            "Remaining Out Of 1700",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 10,
+                                                color: Colors.black),
+                                          ),
+                                        ],
+                                      ),
                                     ),
+                                  ],
+                                ),
+                                Container(
+                                  height: 7,
+                                  width: screenWidth/2,
+                                  decoration: BoxDecoration(
+                                    color: Colors.black.withOpacity(.09),
+                                    borderRadius: BorderRadius.circular(10)
                                   ),
+                                  child: Stack(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.end,
+                                        children: [
+                                          Container(
+                                            height: 7,
+                                            width: (((screenWidth/2)/1725)*(1500*(15)/100)),
+                                            decoration: BoxDecoration(
+                                                color: Colors.red,
+                                                borderRadius: BorderRadius.circular(10)
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.start,
+                                        children: [
+                                          AnimatedContainer(
+                                            duration: Duration(seconds: 2),
+                                            curve: Curves.fastLinearToSlowEaseIn,
+                                            height: 7,
+                                            width: graphAni?(((screenWidth/2)/1725)*500):0,
+                                            decoration: BoxDecoration(
+                                                color: Colors.black,
+                                                borderRadius: BorderRadius.circular(10)
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.only(right:2.0),
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.end,
+                                                children: [
+                                                  AnimatedContainer(
+                                                    duration: Duration(seconds: 5),
+                                                    curve: Curves.fastLinearToSlowEaseIn,
+                                                    height:graphAni? 5:0,
+                                                    width: graphAni?5:0,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white,
+                                                      shape: BoxShape.circle,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Container(
+                              height: screenHeight/22,
+                              width: screenWidth/1.2,
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(.02),
+                                      spreadRadius: 1,
+                                      blurRadius: 80,
+                                    ),
+                                  ],
+                                color: Colors.white,
+                                // border: Border.all(width: 1,color: Colors.grey),
+                                borderRadius: BorderRadius.circular(6)
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: const [
+                                  Text("Plan 444",style: TextStyle(
+                                    fontSize: 13,
+                                    fontWeight: FontWeight.bold,
+
+                                    color: Colors.black,
+                                  ),)
                                 ],
-                              )
-                            ],
-                          ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
