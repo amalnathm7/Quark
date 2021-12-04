@@ -76,7 +76,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const BottomNav()));
+                        builder: (context) => const BottomNav(
+                        )));
               },
               child: const Text("home"),
             ),
