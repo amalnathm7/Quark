@@ -1,6 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
+import 'package:quark/firebase/authentication/auth.dart';
 import 'package:quark/main_screen/electric_car_page/electric_car.dart';
 import 'package:quark/main_screen/home_page/home.dart';
 import 'package:quark/main_screen/profile_page/profile.dart';

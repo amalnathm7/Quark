@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -447,6 +448,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                       emailController.text.trim(),
                                       passController.text.trim())) {
                                 case '':
+                                  final _user = FirebaseAuth.instance.currentUser!;
+                                  _user.updateDisplayName(_user.email!.substring(0, 1).toUpperCase() + _user.email!.substring(1, _user.email!.indexOf('@')));
                                   break;
                                 case 'user-not-found':
                                   setState(() {
