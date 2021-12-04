@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -93,47 +92,11 @@ class ProfilePageState extends State<ProfilePage>
                 ],
               ),
             ),
-            SizedBox(
-              width: 80,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.asset('assets/logo.png'),
-              ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
-                  Text(
-                    "Save Energy\nFor All Life\n\n💡",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text(
-                    "- A Hack4TKM Initiative by Team Gryffindor",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 10,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
-            ),
             _isLogOutClicked
                 ? const CupertinoActivityIndicator()
                 : Padding(
-                    padding: const EdgeInsets.only(
-                        left: 15, right: 15, top: 30, bottom: 30),
+                    padding:
+                        const EdgeInsets.only(left: 15, right: 15, bottom: 30),
                     child: OutlinedButton(
                       style: ButtonStyle(
                         shape: MaterialStateProperty.all(
@@ -172,6 +135,50 @@ class ProfilePageState extends State<ProfilePage>
                       ),
                     ),
                   ),
+            SizedBox(
+              width: 50,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(5),
+                child: Image.asset('assets/icon.png',),
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: const [
+                  Text(
+                    "Save Energy\nFor All Life\n\n💡💡💡",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Text(
+                    "A Hack4TKM Initiative by Team Gryffindor",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 12,
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Text(
+                    "©2021 Gryffindor™",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontSize: 10,
+                      color: Colors.black26,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
