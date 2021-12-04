@@ -14,20 +14,20 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  //Primary Color
-  //Used in Button, Button Shadow
+  //Primary color
+  //Used in button, button shadow
   Color p1Color = Colors.grey[700]!;
 
-  //Used as Container Color
+  //Used as container color
   Color p2Color = Colors.white;
 
-  //Screen Background [Bluish]
+  //Screen background [Bluish]
   Color p3Color = const Color(0xFFf1f7fc);
 
-  //Used In Quark Text
+  //Used in Quark text
   Color p4Color = Colors.grey[900]!;
 
-  //For Manipulating Password Hiding
+  //For manipulating password hiding
   bool passIcon = true;
 
   void passClicked() {
@@ -36,11 +36,11 @@ class _LoginScreenState extends State<LoginScreen> {
     });
   }
 
-  //Focus And UnFocus In TextField
+  //Focus and un-focus in TextField
   bool focusEmail = false;
   bool focusPass = false;
 
-  //TextField Controllers
+  //TextField controllers
   TextEditingController emailController = TextEditingController();
   TextEditingController passController = TextEditingController();
 
@@ -113,7 +113,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                     "Login To",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
-
                                         color: Colors.grey,
                                         fontSize: 20,
                                         letterSpacing: 1.2),
@@ -182,13 +181,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: BoxDecoration(
                               color: p2Color,
                               borderRadius:
-                              const BorderRadius.all(Radius.circular(10.0)),
+                                  const BorderRadius.all(Radius.circular(10.0)),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   SizedBox(
                                     height: 60,
@@ -228,14 +227,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: screenWidth * .02777,
                                     child: Center(
                                         child: Container(
-                                          height: 20,
-                                          width: screenWidth * .00416,
-                                          decoration: const BoxDecoration(
-                                            color: Colors.black12,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                          ),
-                                        )),
+                                      height: 20,
+                                      width: screenWidth * .00416,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.black12,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20)),
+                                      ),
+                                    )),
                                   ),
                                   SizedBox(
                                     height: 55,
@@ -303,13 +302,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             decoration: const BoxDecoration(
                               color: Colors.white,
                               borderRadius:
-                              BorderRadius.all(Radius.circular(10.0)),
+                                  BorderRadius.all(Radius.circular(10.0)),
                             ),
                             child: Padding(
                               padding: const EdgeInsets.only(left: 15.0),
                               child: Row(
                                 mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   SizedBox(
                                     height: 60,
@@ -350,14 +349,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                     width: screenWidth * .02777,
                                     child: Center(
                                         child: Container(
-                                          height: 20,
-                                          width: screenWidth * .00416,
-                                          decoration: const BoxDecoration(
-                                            color: Colors.black12,
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(20)),
-                                          ),
-                                        )),
+                                      height: 20,
+                                      width: screenWidth * .00416,
+                                      decoration: const BoxDecoration(
+                                        color: Colors.black12,
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(20)),
+                                      ),
+                                    )),
                                   ),
                                   Container(
                                     height: 40,
@@ -369,11 +368,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                         highlightColor: Colors.transparent,
                                         icon: !passIcon
                                             ? const Icon(
-                                          Icons.remove_red_eye_outlined     ,
-                                          color: Colors.grey,
-                                        )
+                                                Icons.remove_red_eye_outlined,
+                                                color: Colors.grey,
+                                              )
                                             : const Icon(
-                                            Icons.visibility_off_outlined),
+                                                Icons.visibility_off_outlined),
                                         onPressed: () {
                                           setState(() {
                                             passClicked();
@@ -407,96 +406,96 @@ class _LoginScreenState extends State<LoginScreen> {
                 loginClicked
                     ? const CupertinoActivityIndicator()
                     : Container(
-                  height: 50,
-                  width: screenWidth * .833,
-                  decoration: BoxDecoration(
-                      borderRadius:
-                      const BorderRadius.all(Radius.circular(4.0)),
-                      boxShadow: [
-                        BoxShadow(
-                            color: p4Color.withOpacity(.3),
-                            spreadRadius: 5,
-                            blurRadius: 30,
-                            offset: const Offset(1, 1))
-                      ]),
-                  child: ElevatedButton(
-                    onPressed: () async {
-                      setState(() {
-                        hasTypedPass = false;
-                        hasTypedMail = false;
-                      });
-                      if (emailController.text.trim().isEmpty &&
-                          passController.text.trim().isEmpty) {
-                        setState(() {
-                          errorTextMail = "Email shouldn't be empty";
-                          errorTextPass = "Password shouldn't be empty";
-                        });
-                      } else if (emailController.text.trim().isEmpty) {
-                        setState(() {
-                          errorTextMail = "Email shouldn't be empty";
-                        });
-                      } else if (passController.text.trim().isEmpty) {
-                        setState(() {
-                          errorTextPass = "Password shouldn't be empty";
-                        });
-                      } else {
-                        setState(() {
-                          loginClicked = true;
-                        });
-                        switch (await Authentication().signInEmailAndPassword(
-                            emailController.text.trim(),
-                            passController.text.trim())) {
-                          case '':
-                            break;
-                          case 'user-not-found':
+                        height: 50,
+                        width: screenWidth * .833,
+                        decoration: BoxDecoration(
+                            borderRadius:
+                                const BorderRadius.all(Radius.circular(4.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                  color: p4Color.withOpacity(.3),
+                                  spreadRadius: 5,
+                                  blurRadius: 30,
+                                  offset: const Offset(1, 1))
+                            ]),
+                        child: ElevatedButton(
+                          onPressed: () async {
                             setState(() {
-                              errorTextMail = "User not registered";
-                              loginClicked = false;
+                              hasTypedPass = false;
+                              hasTypedMail = false;
                             });
-                            break;
-                          case 'wrong-password':
-                            setState(() {
-                              errorTextPass = "Wrong password";
-                              loginClicked = false;
-                            });
-                            break;
-                          case 'too-many-requests':
-                            setState(() {
-                              errorTextPass =
-                              "Too many incorrect attempts";
-                              loginClicked = false;
-                            });
-                            break;
-                          default:
-                            setState(() {
-                              errorTextMail = "Invalid email";
-                              loginClicked = false;
-                            });
-                            break;
-                        }
-                      }
-                    },
-                    child: const Text(
-                      "Login",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 17,
-                          letterSpacing: 1),
-                    ),
-                    style: ButtonStyle(
-                        elevation: MaterialStateProperty.all(0),
-                        overlayColor: MaterialStateProperty.all(
-                            p4Color),
-                        backgroundColor: MaterialStateProperty.all(
-                            p4Color),
-                        shadowColor: MaterialStateProperty.all(p4Color),
-                        shape: MaterialStateProperty.all(
-                            const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                    Radius.circular(9))))),
-                  ),
-                ),
+                            if (emailController.text.trim().isEmpty &&
+                                passController.text.trim().isEmpty) {
+                              setState(() {
+                                errorTextMail = "Email shouldn't be empty";
+                                errorTextPass = "Password shouldn't be empty";
+                              });
+                            } else if (emailController.text.trim().isEmpty) {
+                              setState(() {
+                                errorTextMail = "Email shouldn't be empty";
+                              });
+                            } else if (passController.text.trim().isEmpty) {
+                              setState(() {
+                                errorTextPass = "Password shouldn't be empty";
+                              });
+                            } else {
+                              setState(() {
+                                loginClicked = true;
+                              });
+                              switch (await Authentication()
+                                  .signInEmailAndPassword(
+                                      emailController.text.trim(),
+                                      passController.text.trim())) {
+                                case '':
+                                  break;
+                                case 'user-not-found':
+                                  setState(() {
+                                    errorTextMail = "User not registered";
+                                    loginClicked = false;
+                                  });
+                                  break;
+                                case 'wrong-password':
+                                  setState(() {
+                                    errorTextPass = "Wrong password";
+                                    loginClicked = false;
+                                  });
+                                  break;
+                                case 'too-many-requests':
+                                  setState(() {
+                                    errorTextPass =
+                                        "Too many incorrect attempts";
+                                    loginClicked = false;
+                                  });
+                                  break;
+                                default:
+                                  setState(() {
+                                    errorTextMail = "Invalid email";
+                                    loginClicked = false;
+                                  });
+                                  break;
+                              }
+                            }
+                          },
+                          child: const Text(
+                            "Login",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 17,
+                                letterSpacing: 1),
+                          ),
+                          style: ButtonStyle(
+                              elevation: MaterialStateProperty.all(0),
+                              overlayColor: MaterialStateProperty.all(p4Color),
+                              backgroundColor:
+                                  MaterialStateProperty.all(p4Color),
+                              shadowColor: MaterialStateProperty.all(p4Color),
+                              shape: MaterialStateProperty.all(
+                                  const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(9))))),
+                        ),
+                      ),
                 const SizedBox(
                   height: 100,
                 ),
