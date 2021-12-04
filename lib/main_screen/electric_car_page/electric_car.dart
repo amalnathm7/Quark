@@ -12,16 +12,16 @@ class _ElectricCarState extends State<ElectricCar> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-      body: Container(
-        height: screenHeight,
-        width: screenWidth,
-        color: Colors.white,
-        child: const Text(
+        body: Container(
+          height: screenHeight,
+          width: screenWidth,
+          color: Colors.white,
+          child: const Text(
             'Hi',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 20),
-        ),
-      )
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 20),
+          ),
+        )
     );
   }
 }
