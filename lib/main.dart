@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:quark/login_screen/login_page.dart';
 import 'package:quark/main_screen/home_page/home.dart';
-import 'package:quark/splash_screen/splash.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,8 +28,8 @@ class MyApp extends StatelessWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           return snapshot.hasData
-                  ? const HomePage()
-                  : const LoginScreen();
+              ? const HomePage()
+              : const LoginScreen();
         },
       ),
     );
