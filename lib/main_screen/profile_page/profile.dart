@@ -136,10 +136,10 @@ class ProfilePageState extends State<ProfilePage>
                     ),
                   ),
             SizedBox(
-              width: 80,
+              width: 50,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(5),
-                child: Image.asset('assets/logo.png'),
+                child: Image.asset('assets/icon.png',),
               ),
             ),
             const SizedBox(
