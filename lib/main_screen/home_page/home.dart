@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
@@ -15,6 +17,16 @@ class _HomePageState extends State<HomePage> {
 
   bool notiClick = false;
   bool graphAni = false;
+
+ @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    Timer(Duration(microseconds: 1),(){
+      graphAni = true;
+    });
+  }
 
 
 
@@ -398,69 +410,100 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.end,
                               children: [
-                                Container(
-                                  height: (screenHeight/7.7)*(20/50),
+                                AnimatedContainer(
+                                  height:graphAni? (screenHeight/7.7)*(20/50):0,
                                   width: screenWidth/40,
                                   decoration: BoxDecoration(
                                     color: Colors.black.withOpacity(.2),
                                     borderRadius: BorderRadius.circular(10)
-                                  ),
+                                  ), duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
-                                Container(
-                                  height: (screenHeight/7.7)*(40/50),
+                                AnimatedContainer(
+                                  height: graphAni? (screenHeight/7.7)*(40/50):0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
-                                Container(
-                                  height: (screenHeight/7.7)*(35/50),
+                                AnimatedContainer(
+                                  height: graphAni? (screenHeight/7.7)*(35/50):0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
-                                Container(
-                                  height: (screenHeight/7.7)*(15/50),
+                                AnimatedContainer(
+                                  height: graphAni? (screenHeight/7.7)*(15/50):0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
-                                Container(
-                                  height: screenHeight/7.7,
+                                AnimatedContainer(
+                                  height: graphAni? screenHeight/7.7:0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black,
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 2.0),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: screenWidth/50,
+                                          width: screenWidth/50,
+                                          decoration: const BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
                                 ),
-                                Container(
-                                  height: (screenHeight/7.7)*(30/50),
+                                AnimatedContainer(
+                                  height: graphAni? (screenHeight/7.7)*(30/50):0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
-                                Container(
-                                  height: 3,
+                                AnimatedContainer(
+                                  height:graphAni? 3: 0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
-                                Container(
-                                  height: 3,
+                                AnimatedContainer(
+                                  height:graphAni? 3: 0,
                                   width: screenWidth/35,
                                   decoration: BoxDecoration(
                                       color: Colors.black.withOpacity(.2),
                                       borderRadius: BorderRadius.circular(10)
                                   ),
+                                  duration: const Duration(seconds: 4),
+                                  curve: Curves.fastLinearToSlowEaseIn,
                                 ),
                               ],
                             ),
