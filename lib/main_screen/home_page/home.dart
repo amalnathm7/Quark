@@ -363,7 +363,7 @@ class _HomePageState extends State<HomePage> {
 
                         duration: const Duration(seconds: 1),
                       curve: Curves.fastLinearToSlowEaseIn,
-                      height: notiClick?0:screenHeight/1.45,
+                      height: notiClick?screenHeight/1.45:0,
                       width: screenWidth,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -403,24 +403,24 @@ class _HomePageState extends State<HomePage> {
                                       letterSpacing: .7
                                     ),),
 
-                                    SizedBox(
-                                      width: screenWidth/3.5,
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.end,
-                                        children: [
-                                          InkWell(
-                                            onTap:(){
-                                              setState(() {
-                                                notiClick = false;
-                                              });
-                                            },
-                                            child: const SizedBox(
+                                    InkWell(
+                                      onTap:(){
+                                        setState(() {
+                                          notiClick = false;
+                                        });
+                                      },
+                                      child: SizedBox(
+                                        width: screenWidth/3.5,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.end,
+                                          children: [
+                                            const SizedBox(
                                               height: 20,
                                               width: 20,
                                               child: Icon(CupertinoIcons.clear,color: Colors.white,size: 14,),
-                                            ),
-                                          )
-                                        ],
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
                                   ],
