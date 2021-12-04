@@ -121,7 +121,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                   children: [
                     _searchClicked
                         ? Container(
-                            width: 300,
+                            width: MediaQuery.of(context).size.width / 1.25,
                             padding: const EdgeInsets.only(left: 15),
                             child: TextField(
                               autofocus: true,
@@ -139,11 +139,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                             ),
                           )
                         : SizedBox(
-                            width: 200,
                             child: Padding(
                               padding: const EdgeInsets.only(left: 15),
                               child: Text(
-                                "Recharge Plans for " + _user.displayName!,
+                                "Recharge Plans\nfor " + _user.displayName!,
                                 textAlign: TextAlign.start,
                                 style: const TextStyle(
                                   color: Colors.black,
@@ -406,47 +405,55 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                         itemCount: addonPlans.length,
                         physics: const BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(top: 10, bottom: 10),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  flex: 1,
-                                  child: Center(
-                                    child: Container(
-                                      color: Colors.yellow[100],
-                                      padding: const EdgeInsets.all(10),
-                                      child: Text(
-                                        "₹ " +
-                                            addonPlans[index]['amount']
-                                                .toString(),
-                                        style: const TextStyle(
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.bold,
-                                          overflow: TextOverflow.clip,
+                          return GestureDetector(
+                            onTap: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return Center(
+                                      child: SizedBox(
+                                        child: Text(
+                                          "Pay ₹ " +
+                                              addonPlans[index]['amount']
+                                                  .toString(),
+                                          style: const TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  });
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10, bottom: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Center(
+                                      child: Container(
+                                        color: Colors.yellow[100],
+                                        padding: const EdgeInsets.all(10),
+                                        child: Text(
+                                          "₹ " +
+                                              addonPlans[index]['amount']
+                                                  .toString(),
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            overflow: TextOverflow.clip,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Expanded(
-                                  flex: 3,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.grey[200],
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey[100]!,
-                                            offset: const Offset(0, 0),
-                                            spreadRadius: 2,
-                                            blurRadius: 2)
-                                      ],
-                                    ),
-                                    padding: const EdgeInsets.only(left: 30),
+                                  Expanded(
+                                    flex: 3,
                                     child: Container(
-                                      padding: const EdgeInsets.all(8.0),
                                       decoration: BoxDecoration(
-                                        color: Colors.grey[100],
+                                        color: Colors.grey[200],
                                         boxShadow: [
                                           BoxShadow(
                                               color: Colors.grey[100]!,
@@ -455,41 +462,55 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                               blurRadius: 2)
                                         ],
                                       ),
-                                      child: ListTile(
-                                        contentPadding:
-                                            const EdgeInsets.only(right: 20),
-                                        tileColor: Colors.grey[100],
-                                        trailing: Text(
-                                          addonPlans[index]['validity']
-                                                  .toString() +
-                                              " \nvalidity",
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(
-                                            overflow: TextOverflow.clip,
-                                          ),
+                                      padding: const EdgeInsets.only(left: 30),
+                                      child: Container(
+                                        padding: const EdgeInsets.all(8.0),
+                                        decoration: BoxDecoration(
+                                          color: Colors.grey[100],
+                                          boxShadow: [
+                                            BoxShadow(
+                                                color: Colors.grey[100]!,
+                                                offset: const Offset(0, 0),
+                                                spreadRadius: 2,
+                                                blurRadius: 2)
+                                          ],
                                         ),
-                                        title: Text(
-                                          addonPlans[index]['credits']
-                                                  .toString() +
-                                              " \ncredits ⚡",
-                                          style: const TextStyle(
-                                            fontWeight: FontWeight.bold,
-                                            overflow: TextOverflow.clip,
+                                        child: ListTile(
+                                          contentPadding:
+                                              const EdgeInsets.only(right: 20),
+                                          tileColor: Colors.grey[100],
+                                          trailing: Text(
+                                            addonPlans[index]['validity']
+                                                    .toString() +
+                                                " \nvalidity",
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              overflow: TextOverflow.clip,
+                                            ),
                                           ),
-                                        ),
-                                        subtitle: Text(
-                                          addonPlans[index]['details']
-                                              .toString(),
-                                          style: const TextStyle(
-                                            overflow: TextOverflow.clip,
-                                            fontSize: 11,
+                                          title: Text(
+                                            addonPlans[index]['credits']
+                                                    .toString() +
+                                                " \ncredits ⚡",
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              overflow: TextOverflow.clip,
+                                            ),
+                                          ),
+                                          subtitle: Text(
+                                            addonPlans[index]['details']
+                                                .toString(),
+                                            style: const TextStyle(
+                                              overflow: TextOverflow.clip,
+                                              fontSize: 11,
+                                            ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           );
                         },
