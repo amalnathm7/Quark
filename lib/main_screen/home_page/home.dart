@@ -283,11 +283,15 @@ class _HomePageState extends State<HomePage> {
               ),
 
               Container(
-
+                height: screenHeight/2.5,
+                width: screenWidth,
+                color: Colors.white,
               ),
 
               Container(
-                
+                height: screenHeight/2.5,
+                width: screenWidth,
+                color: Colors.grey,
               ),
             ],
           ),
