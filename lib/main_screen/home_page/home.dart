@@ -23,8 +23,11 @@ class _HomePageState extends State<HomePage> {
     // TODO: implement initState
     super.initState();
 
-    Timer(Duration(microseconds: 1),(){
-      graphAni = true;
+    Timer(const Duration(microseconds: 1),(){
+      setState(() {
+        graphAni = true;
+      });
+
     });
   }
 
@@ -463,13 +466,14 @@ class _HomePageState extends State<HomePage> {
                                     child: Column(
                                       mainAxisAlignment: MainAxisAlignment.start,
                                       children: [
-                                        Container(
-                                          height: screenWidth/50,
-                                          width: screenWidth/50,
+                                        AnimatedContainer(
+                                          height: graphAni?screenWidth/50:0,
+                                          width: graphAni?screenWidth/50:0,
                                           decoration: const BoxDecoration(
                                             shape: BoxShape.circle,
                                             color: Colors.white,
-                                          ),
+                                          ), duration: const Duration(seconds: 5),
+                                          curve: Curves.fastLinearToSlowEaseIn,
                                         ),
                                       ],
                                     ),
