@@ -38,6 +38,8 @@ class Firestore extends ChangeNotifier {
                             : 'household_plans')
             .snapshots()
             .listen((value) {
+              monthlyPlans.clear();
+
           for (var element in value.docs) {
             monthlyPlans.add({
               'id': element.id,
@@ -52,6 +54,8 @@ class Firestore extends ChangeNotifier {
           notifyListeners();
 
           db.collection('add_on_plans').snapshots().listen((value) {
+            addonPlans.clear();
+
             for (var element in value.docs) {
               addonPlans.add({
                 'id': element.id,
@@ -78,6 +82,7 @@ class Firestore extends ChangeNotifier {
           currentPlan = snapshot.get('current_plan');
           remainingCredits = snapshot.get('remaining_credits');
 
+          recommendedPlans.clear();
           snapshot.get('recommended_plans').forEach((DocumentReference ref) {
             ref.get().then((value) {
               recommendedPlans.add({
