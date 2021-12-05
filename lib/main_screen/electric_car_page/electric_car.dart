@@ -87,11 +87,13 @@ class _ElectricCarState extends State<ElectricCar> {
                             borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15))
                           ),
                           child: SingleChildScrollView(
+                            physics: const BouncingScrollPhysics(),
                             child: Padding(
-                              padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
+                              padding: const EdgeInsets.only(left: 15,right: 15,top: 10),
                               child: Column(
                                 children: [
-                                  Container(
+
+                                  SizedBox(
                                     height: 60,
                                     width: screenWidth,
                                     child: Row(
@@ -109,7 +111,7 @@ class _ElectricCarState extends State<ElectricCar> {
 
                                         Padding(
                                           padding: const EdgeInsets.only(left: 14.0),
-                                          child: Text("Nearby Charging Station",style: TextStyle(
+                                          child: Text("Nearby  Charging  Station",style: TextStyle(
                                             fontSize: 15,
                                             color: Colors.black.withOpacity(.8),
                                             fontWeight: FontWeight.bold,
@@ -118,6 +120,119 @@ class _ElectricCarState extends State<ElectricCar> {
                                       ],
                                     ),
                                   ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 20.0),
+                                    child: Container(
+                                      height: 120,
+                                      width: screenWidth,
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+
+                                              Text("Kseb kottarakara",style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.black
+                                              ),),
+
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right:8.0),
+                                                    child: Icon(CupertinoIcons.arrow_branch,size: 10,color: Colors.grey,),
+                                                  ),
+                                                  Text("12 km",style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: Colors.grey,
+                                                    fontSize: 12
+                                                  ),),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+
+                                          Container(
+                                            height: 30,
+
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text("Available",style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.grey,
+                                                ),),
+                                                Container(
+                                                  height: 2,
+                                                  width: screenWidth/1.3,
+                                                  decoration: BoxDecoration(
+                                                    borderRadius: BorderRadius.circular(2),
+                                                    color: Colors.grey.withOpacity(.5)
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          
+                                          Container(
+                                            height: 60,
+                                            width: screenWidth,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(5),
+                                              color: Colors.white,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(.1),
+                                                    blurRadius: 90,
+                                                    spreadRadius: 1,
+                                                  ),
+                                                ]
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 20.0),
+                                    child: Container(
+                                      height: 80,
+                                      width: screenWidth,
+
+                                    ),
+                                  ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 20.0),
+                                    child: Container(
+                                      height: 80,
+                                      width: screenWidth,
+
+                                    ),
+                                  ),
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 20.0),
+                                    child: Container(
+                                      height: 80,
+                                      width: screenWidth,
+
+                                    ),
+                                  ),
+
+
+
                                 ],
                               ),
                             ),
@@ -126,8 +241,6 @@ class _ElectricCarState extends State<ElectricCar> {
                       ],
                     ),
                   )
-
-
                 ],
               ),
             ],
