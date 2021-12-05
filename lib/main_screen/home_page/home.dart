@@ -1,11 +1,12 @@
 import 'dart:async';
 import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'package:flutter/painting.dart';
+import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
+import 'package:quark/main.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,19 +16,30 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool notiClick = false;
-  bool graphAni = false;
+  bool notificationClick = false;
+  bool graphAnimated = false;
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
+
+    MyApp.db.addListener(listener);
 
     Timer(const Duration(microseconds: 1), () {
       setState(() {
-        graphAni = true;
+        graphAnimated = true;
       });
     });
+  }
+
+  void listener() {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    MyApp.db.removeListener(listener);
+    super.dispose();
   }
 
   @override
@@ -77,7 +89,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               const Text(
-                                "Always Save on using energy",
+                                "   Always Save on using Energy 💡",
                                 style: TextStyle(
                                     fontSize: 10,
                                     letterSpacing: .8,
@@ -102,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                                     InkWell(
                                       onTap: () {
                                         setState(() {
-                                          notiClick = true;
+                                          notificationClick = true;
                                         });
                                       },
                                       child: Container(
@@ -191,9 +203,11 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(15),
                         boxShadow: [
                           BoxShadow(
-                            color: graphAni?notiClick
-                                ? Colors.transparent
-                                : Colors.black.withOpacity(.1):Colors.transparent,
+                            color: graphAnimated
+                                ? notificationClick
+                                    ? Colors.transparent
+                                    : Colors.black.withOpacity(.1)
+                                : Colors.transparent,
                             spreadRadius: 1,
                             blurRadius: 50,
                           ),
@@ -236,7 +250,11 @@ class _HomePageState extends State<HomePage> {
                                           color: Colors.black.withOpacity(.8),
                                         ),
                                         Text(
-                                          "4 Dec 2021",
+                                          " " +
+                                              DateFormat.yMMMMd('en_US')
+                                                  .format(DateTime.now())
+                                                  .toString() +
+                                              " ",
                                           style: TextStyle(
                                               fontSize: 13,
                                               fontWeight: FontWeight.bold,
@@ -321,7 +339,8 @@ class _HomePageState extends State<HomePage> {
                                                 height: 8,
                                               ),
                                               Text(
-                                                "28.6 kWh",
+                                                MyApp.db.todayUsage.toString() +
+                                                    " kWh",
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight: FontWeight.bold,
@@ -364,7 +383,8 @@ class _HomePageState extends State<HomePage> {
                                                 height: 8,
                                               ),
                                               Text(
-                                                "560.6 kWh",
+                                                MyApp.db.monthUsage.toString() +
+                                                    " kWh",
                                                 style: TextStyle(
                                                     fontSize: 18,
                                                     fontWeight: FontWeight.bold,
@@ -389,14 +409,19 @@ class _HomePageState extends State<HomePage> {
                     height: 10,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.only(
+                      left: 5,
+                      right: 5,
+                      top: 20,
+                      bottom: 20,
+                    ),
                     child: Container(
                       height: screenHeight / 4,
                       width: screenWidth,
                       color: Colors.white10,
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             height: screenHeight / 20,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -414,7 +439,7 @@ class _HomePageState extends State<HomePage> {
                                     const Padding(
                                       padding: EdgeInsets.only(left: 8.0),
                                       child: Text(
-                                        "Hourwise",
+                                        "Past 24 hours",
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.bold,
@@ -424,9 +449,12 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ],
                                 ),
-                                const Text(
-                                  "Max : 50kWh",
-                                  style: TextStyle(
+                                Text(
+                                  "Max: " +
+                                      MyApp.db.hourlyUsage[MyApp.db.peakIndex]
+                                          .toString() +
+                                      " kWh",
+                                  style: const TextStyle(
                                       color: Colors.grey,
                                       fontWeight: FontWeight.bold,
                                       fontSize: 8,
@@ -435,185 +463,159 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             height: screenHeight / 7.1,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                AnimatedContainer(
-                                  height: graphAni
-                                      ? (screenHeight / 7.7) * (20 / 50)
-                                      : 0,
-                                  width: screenWidth / 40,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni
-                                      ? (screenHeight / 7.7) * (40 / 50)
-                                      : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni
-                                      ? (screenHeight / 7.7) * (35 / 50)
-                                      : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni
-                                      ? (screenHeight / 7.7) * (15 / 50)
-                                      : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni ? screenHeight / 7.7 : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black,
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(top: 2.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        AnimatedContainer(
-                                          height:
-                                              graphAni ? screenWidth / 50 : 0,
-                                          width:
-                                              graphAni ? screenWidth / 50 : 0,
-                                          decoration: const BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: Colors.white,
+                            child: ListView.builder(
+                                itemCount: 8,
+                                scrollDirection: Axis.horizontal,
+                                itemBuilder: (context, index) {
+                                  return AnimatedPadding(
+                                    duration: const Duration(seconds: 4),
+                                    curve: Curves.fastLinearToSlowEaseIn,
+                                    padding: graphAnimated
+                                        ? EdgeInsets.only(
+                                            left: 15.5,
+                                            right: 15.5,
+                                            top: MyApp.db.category.isEmpty
+                                                ? (screenHeight / 7.1)
+                                                : (screenHeight / 7.1) -
+                                                    (screenHeight / 7.1) *
+                                                        (MyApp.db.hourlyUsage[
+                                                                index] /
+                                                            MyApp.db.hourlyUsage[
+                                                                MyApp.db
+                                                                    .peakIndex]),
+                                          )
+                                        : EdgeInsets.only(
+                                            left: 15.5,
+                                            right: 15.5,
+                                            top: (screenHeight / 7.1),
                                           ),
-                                          duration: const Duration(seconds: 5),
-                                          curve: Curves.fastLinearToSlowEaseIn,
-                                        ),
-                                      ],
+                                    child: Container(
+                                      width: screenWidth / 35,
+                                      decoration: BoxDecoration(
+                                          color: index == MyApp.db.peakIndex
+                                              ? Colors.black
+                                              : Colors.black.withOpacity(.2),
+                                          borderRadius:
+                                              BorderRadius.circular(10)),
+                                      child: index == MyApp.db.peakIndex
+                                          ? Padding(
+                                              padding: const EdgeInsets.only(
+                                                  top: 2.0),
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  AnimatedContainer(
+                                                    height: graphAnimated
+                                                        ? screenWidth / 50
+                                                        : 0,
+                                                    width: graphAnimated
+                                                        ? screenWidth / 50
+                                                        : 0,
+                                                    decoration:
+                                                        const BoxDecoration(
+                                                      shape: BoxShape.circle,
+                                                      color: Colors.white,
+                                                    ),
+                                                    duration: const Duration(
+                                                        seconds: 5),
+                                                    curve: Curves
+                                                        .fastLinearToSlowEaseIn,
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          : const SizedBox(),
                                     ),
-                                  ),
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni
-                                      ? (screenHeight / 7.7) * (30 / 50)
-                                      : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni ? 3 : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                                AnimatedContainer(
-                                  height: graphAni ? 3 : 0,
-                                  width: screenWidth / 35,
-                                  decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(.2),
-                                      borderRadius: BorderRadius.circular(10)),
-                                  duration: const Duration(seconds: 4),
-                                  curve: Curves.fastLinearToSlowEaseIn,
-                                ),
-                              ],
-                            ),
+                                  );
+                                }),
                           ),
                           SizedBox(
                             height: screenHeight / 17,
+                            width: screenWidth / 1.2,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(
-                                  "0",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "0-3",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "3",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "3-6",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "6",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "6-9",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "9",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "9-12",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "12",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "12-15",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "15",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "15-18",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "18",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "18-21",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
-                                Text(
-                                  "21",
-                                  style: TextStyle(
-                                    color: Colors.black.withOpacity(.5),
-                                    fontSize: 11,
-                                    fontWeight: FontWeight.bold,
+                                Expanded(
+                                  child: Text(
+                                    "21-24",
+                                    style: TextStyle(
+                                      color: Colors.black.withOpacity(.5),
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -624,7 +626,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   AnimatedContainer(
-                    height: screenHeight / 5,
+                    height: screenHeight / 4.5,
                     width: screenWidth,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -689,20 +691,29 @@ class _HomePageState extends State<HomePage> {
                                             MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
-                                        children: const [
+                                        children: [
                                           Text(
-                                            "500",
-                                            style: TextStyle(
+                                            MyApp.db.remainingCredits
+                                                .toString(),
+                                            overflow: TextOverflow.ellipsis,
+                                            style: const TextStyle(
                                                 fontWeight: FontWeight.bold,
                                                 fontSize: 55,
                                                 color: Colors.black),
                                           ),
-                                          Text(
-                                            "Remaining Out Of 1700",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 10,
-                                                color: Colors.black),
+                                          Expanded(
+                                            child: Text(
+                                              "Remaining out of " +
+                                                  MyApp.db
+                                                      .currentPlan!['credits']
+                                                      .toString() +
+                                                  " credits",
+                                              overflow: TextOverflow.clip,
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 10,
+                                                  color: Colors.black),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -743,9 +754,15 @@ class _HomePageState extends State<HomePage> {
                                             curve:
                                                 Curves.fastLinearToSlowEaseIn,
                                             height: 30,
-                                            width: graphAni
-                                                ? (((screenWidth / 2) / 1725) *
-                                                    1000)
+                                            width: graphAnimated
+                                                ? (((screenWidth / 2) /
+                                                        MyApp.db.currentPlan![
+                                                            'credits'] *
+                                                        1.15) *
+                                                    (MyApp.db.currentPlan![
+                                                            'credits'] -
+                                                        MyApp.db
+                                                            .remainingCredits))
                                                 : 0,
                                             decoration: BoxDecoration(
                                               color: Colors.black,
@@ -772,8 +789,10 @@ class _HomePageState extends State<HomePage> {
                                                         seconds: 5),
                                                     curve: Curves
                                                         .fastLinearToSlowEaseIn,
-                                                    height: graphAni ? 20 : 0,
-                                                    width: graphAni ? 10 : 0,
+                                                    height:
+                                                        graphAnimated ? 20 : 0,
+                                                    width:
+                                                        graphAnimated ? 10 : 0,
                                                     decoration: BoxDecoration(
                                                         color: Colors.white,
                                                         shape:
@@ -793,13 +812,16 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             AnimatedContainer(
                               height: screenHeight / 22,
                               width: screenWidth / 1.2,
                               decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(
-                                      color: graphAni
+                                      color: graphAnimated
                                           ? Colors.black.withOpacity(.2)
                                           : Colors.transparent,
                                       spreadRadius: 1,
@@ -815,9 +837,11 @@ class _HomePageState extends State<HomePage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  const Text(
-                                    "Plan 444",
-                                    style: TextStyle(
+                                  Text(
+                                    "Plan " +
+                                        MyApp.db.currentPlan!['amount']
+                                            .toString(),
+                                    style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
                                       letterSpacing: .8,
@@ -844,7 +868,12 @@ class _HomePageState extends State<HomePage> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          "Validity  :  23 Dec 2021",
+                                          "Validity  :  " +
+                                              DateFormat.yMMMMd('en_US')
+                                                  .format(MyApp.db
+                                                      .currentPlan!['validity']
+                                                      .toDate())
+                                                  .toString(),
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 10,
@@ -873,7 +902,7 @@ class _HomePageState extends State<HomePage> {
                     AnimatedContainer(
                       duration: const Duration(seconds: 2),
                       curve: Curves.fastLinearToSlowEaseIn,
-                      height: notiClick ? screenHeight / 1.45 : 0,
+                      height: notificationClick ? screenHeight / 1.45 : 0,
                       width: screenWidth,
                       decoration: BoxDecoration(
                         color: Colors.white,
@@ -918,7 +947,7 @@ class _HomePageState extends State<HomePage> {
                                     InkWell(
                                       onTap: () {
                                         setState(() {
-                                          notiClick = false;
+                                          notificationClick = false;
                                         });
                                       },
                                       child: SizedBox(
@@ -965,82 +994,104 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: Stack(
                                     children: [
-                                      Container(
+                                      SizedBox(
                                         height: 100,
                                         width: screenWidth / 1.1,
                                         child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(10),
-                                            child: Image.network("https://image.freepik.com/free-photo/closeup-shot-lit-large-lightbulb-with-blurred-background_181624-2051.jpg",
-                                            fit: BoxFit.cover,
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            child: Image.network(
+                                              "https://image.freepik.com/free-photo/closeup-shot-lit-large-lightbulb-with-blurred-background_181624-2051.jpg",
+                                              fit: BoxFit.cover,
                                             )),
                                       ),
-
-
-
-                                      Container(
-                                        height: 100,
-                                        width: screenWidth / 1.1,
-                                        child:Column(
-                                          children:[
-                                        Padding(
-                                        padding: const EdgeInsets.only(left: 20,right: 10,top: 15,bottom: 10),
-                                        child: ClipRRect(
-                                          borderRadius: BorderRadius.circular(15),
-                                          child: BackdropFilter(
-                                              filter: ImageFilter.blur(sigmaY: 16,sigmaX: 16),
-                                              child: Container(
-                                                  height: 75,
-                                                  width: 300,
-                                                  decoration:  BoxDecoration(
-                                                    color: Colors.white.withOpacity(.03),
-                                                    borderRadius: const BorderRadius.all(Radius.circular(15)),
-                                                  ),
-                                                child: Row(
-                                                  mainAxisAlignment: MainAxisAlignment.center,
-
-                                                  children:  [
-                                                    Text("\" Save Energy For Tommorow \"",
-                                                      style: TextStyle(
-                                                        fontSize: 15,
-                                                        color: Colors.white.withOpacity(.8),
-                                                        fontWeight: FontWeight.bold,
-                                                        letterSpacing: .8,
-                                                        shadows: [
-                                                          Shadow(
-                                                            blurRadius: 20.0,
-                                                            color: Colors.black,
+                                      SizedBox(
+                                          height: 100,
+                                          width: screenWidth / 1.1,
+                                          child: Column(children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 20,
+                                                  right: 10,
+                                                  top: 15,
+                                                  bottom: 10),
+                                              child: ClipRRect(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                child: BackdropFilter(
+                                                  filter: ImageFilter.blur(
+                                                      sigmaY: 16, sigmaX: 16),
+                                                  child: Container(
+                                                    height: 75,
+                                                    width: 300,
+                                                    decoration: BoxDecoration(
+                                                      color: Colors.white
+                                                          .withOpacity(.03),
+                                                      borderRadius:
+                                                          const BorderRadius
+                                                                  .all(
+                                                              Radius.circular(
+                                                                  15)),
+                                                    ),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Text(
+                                                          "\" Save Energy For Tomorrow \"",
+                                                          style: TextStyle(
+                                                            fontSize: 15,
+                                                            color: Colors.white
+                                                                .withOpacity(
+                                                                    .8),
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                            letterSpacing: .8,
+                                                            shadows: const [
+                                                              Shadow(
+                                                                blurRadius:
+                                                                    20.0,
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                            ],
                                                           ),
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
-                                          ),
-                                        ),
-                                        ),
-                                          ]
-                                        )
-                                      ),
-                                      
-                                      Container(
+                                            ),
+                                          ])),
+                                      SizedBox(
                                         height: 100,
                                         width: screenWidth / 1.1,
                                         child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Padding(
-                                              padding: const EdgeInsets.only(left:10,right:10,top: 10),
+                                              padding: const EdgeInsets.only(
+                                                  left: 10, right: 10, top: 10),
                                               child: Container(
                                                 height: 30,
                                                 width: 30,
                                                 decoration: BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(10)
-                                                ),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10)),
                                                 child: ClipRRect(
-                                                    borderRadius: BorderRadius.circular(10),
-                                                    child: Image.asset("assets/logo.png",fit: BoxFit.cover,)),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10),
+                                                    child: Image.asset(
+                                                      "assets/logo.png",
+                                                      fit: BoxFit.cover,
+                                                    )),
                                               ),
                                             ),
                                           ],
@@ -1070,7 +1121,7 @@ class _HomePageState extends State<HomePage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.start,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           height: 100,
                                           width: screenWidth / 4,
                                           child: Row(
@@ -1254,17 +1305,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ],
                                   ),
-                                  child:  Stack(
-                                    children: [
-                                      Row(
-                                          children: [
-                                            
-                                          ],
-                                        ),
-                                    ],
-                                  ),
-
-                              ),
+                                ),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(

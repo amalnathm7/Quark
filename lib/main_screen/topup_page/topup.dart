@@ -168,22 +168,35 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                               showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
-                                    return Center(
-                                      child: SizedBox(
-                                        child: Text(
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
                                           "Pay ₹" +
                                               (MyApp.db.recommendedPlans[index]
                                                           ['amount'] +
-                                                      200)
-                                                  .toString() +
-                                              "\n\n\n(Base charge (₹200) + Plan amount)",
+                                                      MyApp.db.baseAmount)
+                                                  .toString(),
                                           textAlign: TextAlign.center,
                                           style: const TextStyle(
-                                            fontSize: 24,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                      ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "(Base charge (₹" +
+                                              MyApp.db.baseAmount.toString() +
+                                              ") + Plan amount)",
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
                                     );
                                   });
                             },
@@ -303,33 +316,38 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
-                              FirebaseFirestore.instance
-                                  .collection("add_on_plans")
-                                  .doc()
-                                  .set({
-                                'amount': 250,
-                                'details': '200 credits add-on to base plan.',
-                                'credits': 200,
-                              });
                               showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
-                                    return Center(
-                                      child: SizedBox(
-                                        child: Text(
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Text(
                                           "Pay ₹" +
                                               (MyApp.db.monthlyPlans[index]
                                                           ['amount'] +
-                                                      300)
-                                                  .toString() +
-                                              "\n\n\n(Base charge (₹300) + Plan amount)",
+                                                      MyApp.db.baseAmount)
+                                                  .toString(),
                                           textAlign: TextAlign.center,
                                           style: const TextStyle(
-                                            fontSize: 24,
+                                            fontSize: 20,
                                             fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                      ),
+                                        const SizedBox(
+                                          height: 10,
+                                        ),
+                                        Text(
+                                          "(Base charge (₹" +
+                                              MyApp.db.baseAmount.toString() +
+                                              ") + Plan amount)",
+                                          textAlign: TextAlign.center,
+                                          style: const TextStyle(
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
                                     );
                                   });
                             },
@@ -456,18 +474,17 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                               showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
-                                    return Center(
-                                      child: SizedBox(
-                                        child: Text(
-                                          "Pay ₹" +
-                                              MyApp.db
-                                                  .addonPlans[index]['amount']
-                                                  .toString(),
-                                          textAlign: TextAlign.center,
-                                          style: const TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                    return Padding(
+                                      padding: const EdgeInsets.all(100.0),
+                                      child: Text(
+                                        "Pay ₹" +
+                                            (MyApp.db.addonPlans[index]
+                                                    ['amount'])
+                                                .toString(),
+                                        textAlign: TextAlign.center,
+                                        style: const TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.bold,
                                         ),
                                       ),
                                     );

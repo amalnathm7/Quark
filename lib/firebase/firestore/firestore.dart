@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 
 class Firestore extends ChangeNotifier {
   String category = "";
-  DateTime today = DateTime.now();
   double todayUsage = 0;
   double monthUsage = 0;
+  double baseAmount = 0;
   List<dynamic> hourlyUsage = [
     0,
     0,
@@ -31,6 +31,34 @@ class Firestore extends ChangeNotifier {
   listen() async {
     db.collection("users").doc(_user.uid).snapshots().listen((snapshot) async {
       if (snapshot.exists) {
+        todayUsage = snapshot.get('today_usage');
+        monthUsage = snapshot.get('month_usage');
+        hourlyUsage = snapshot.get('hourly_usage');
+        for (int i = 1; i < hourlyUsage.length; i++) {
+          if (hourlyUsage[i] > hourlyUsage[peakIndex]) {
+            peakIndex = i;
+          }
+        }
+
+        notifyListeners();
+
+        currentPlan = snapshot.get('current_plan');
+        remainingCredits = snapshot.get('remaining_credits').toDouble();
+
+        recommendedPlans.clear();
+        snapshot.get('recommended_plans').forEach((ref) {
+          ref.get().then((value) {
+            recommendedPlans.add({
+              'id': value.id,
+              'amount': value.get('amount'),
+              'details': value.get('details'),
+              'validity': value.get('validity'),
+              'credits': value.get('credits'),
+              'per_day': value.get('per_day'),
+            });
+          });
+        });
+
         category = snapshot.get('category');
 
         notifyListeners();
@@ -45,7 +73,8 @@ class Firestore extends ChangeNotifier {
                         : category == 'industrial'
                             ? 'industrial_plans'
                             : 'household_plans')
-            .orderBy('amount').snapshots()
+            .orderBy('amount')
+            .snapshots()
             .listen((value) {
           monthlyPlans.clear();
 
@@ -62,7 +91,11 @@ class Firestore extends ChangeNotifier {
 
           notifyListeners();
 
-          db.collection('add_on_plans').orderBy('amount').snapshots().listen((value) {
+          db
+              .collection('add_on_plans')
+              .orderBy('amount')
+              .snapshots()
+              .listen((value) {
             addonPlans.clear();
 
             for (var element in value.docs) {
@@ -77,32 +110,12 @@ class Firestore extends ChangeNotifier {
 
           notifyListeners();
 
-          todayUsage = snapshot.get('today_usage');
-          monthUsage = snapshot.get('month_usage');
-          hourlyUsage = snapshot.get('hourly_usage');
-          for (int i = 1; i < hourlyUsage.length; i++) {
-            if (hourlyUsage[i] > hourlyUsage[peakIndex]) {
-              peakIndex = i;
-            }
-          }
-
-          notifyListeners();
-
-          currentPlan = snapshot.get('current_plan');
-          remainingCredits = snapshot.get('remaining_credits').toDouble();
-
-          recommendedPlans.clear();
-          snapshot.get('recommended_plans').forEach((ref) {
-            ref.get().then((value) {
-              recommendedPlans.add({
-                'id': value.id,
-                'amount': value.get('amount'),
-                'details': value.get('details'),
-                'validity': value.get('validity'),
-                'credits': value.get('credits'),
-                'per_day': value.get('per_day'),
-              });
-            });
+          db
+              .collection("base_charges")
+              .doc(category)
+              .snapshots()
+              .listen((event) {
+            baseAmount = event.get('amount').toDouble();
           });
 
           notifyListeners();
