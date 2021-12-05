@@ -678,7 +678,7 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                       height: screenHeight / 7.2,
                                       width: screenWidth / 3.4,
                                       child: Column(
@@ -789,13 +789,13 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ],
                             ),
-                            Container(
+                            AnimatedContainer(
                               height: screenHeight / 22,
                               width: screenWidth / 1.2,
                               decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(.2),
+                                     color:  graphAni?Colors.black.withOpacity(.2):Colors.transparent,
                                       spreadRadius: 1,
                                       blurRadius: 50,
                                     ),
@@ -803,6 +803,8 @@ class _HomePageState extends State<HomePage> {
                                   color: Colors.white,
                                   // border: Border.all(width: 1,color: Colors.grey),
                                   borderRadius: BorderRadius.circular(6)),
+                              duration: const Duration(seconds:4),
+                              curve: Curves.fastLinearToSlowEaseIn,
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
@@ -856,6 +858,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+
+
               Padding(
                 padding: EdgeInsets.only(
                   top: screenHeight / 8,
@@ -884,6 +888,8 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(10.0),
                           child: Column(
                             children: [
+
+
                               Container(
                                 height: 50,
                                 width: screenWidth / 1.1,
@@ -933,6 +939,106 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                   ],
+                                ),
+                              ),
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
