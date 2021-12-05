@@ -19,36 +19,49 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
       'details': 'Average 5 units per day at 120V.',
       'validity': 28,
       'credits': 140,
+      'per_day': false,
+    },
+    {
+      'amount': 200,
+      'details': '5 units per day at 120V.',
+      'validity': 28,
+      'credits': 5,
+      'per_day': true,
     },
     {
       'amount': 350,
       'details': 'Average 10 units per day at 120V.',
       'validity': 28,
       'credits': 280,
+      'per_day': false,
     },
     {
       'amount': 400,
       'details': 'Average 5 units per day at 120V.',
       'validity': 56,
       'credits': 280,
+      'per_day': false,
     },
     {
       'amount': 700,
       'details': 'Average 10 units per day at 120V.',
       'validity': 56,
       'credits': 560,
+      'per_day': false,
     },
     {
       'amount': 600,
       'details': 'Average 5 units per day at 120V.',
       'validity': 84,
       'credits': 420,
+      'per_day': false,
     },
     {
       'amount': 1050,
       'details': 'Average 10 units per day at 120V.',
       'validity': 84,
       'credits': 840,
+      'per_day': false,
     },
   ];
 
@@ -58,12 +71,14 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
       'details': 'Average 5 units per day at 120V.',
       'validity': 28,
       'credits': 140,
+      'per_day': false,
     },
     {
       'amount': 400,
       'details': 'Average 5 units per day at 120V.',
       'validity': 56,
       'credits': 280,
+      'per_day': false,
     },
   ];
 
@@ -71,25 +86,21 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
     {
       'amount': 50,
       'details': '25 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 25,
     },
     {
       'amount': 120,
       'details': '50 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 50,
     },
     {
       'amount': 250,
       'details': '100 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 100,
     },
     {
       'amount': 600,
       'details': '200 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 200,
     },
   ];
@@ -226,54 +237,67 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                         physics: const BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
                           return GestureDetector(
-                              onTap: () {
-                                showModalBottomSheet(
-                                    context: context,
-                                    builder: (context) {
-                                      return Center(
-                                        child: SizedBox(
-                                          child: Text(
-                                            "Pay ₹ " +
-                                                recommendedPlans[index]['amount']
-                                                    .toString(),
-                                            style: const TextStyle(
-                                              fontSize: 24,
-                                              fontWeight: FontWeight.bold,
-                                            ),
+                            onTap: () {
+                              showModalBottomSheet(
+                                  context: context,
+                                  builder: (context) {
+                                    return Center(
+                                      child: SizedBox(
+                                        child: Text(
+                                          "Pay ₹ " +
+                                              recommendedPlans[index]['amount']
+                                                  .toString(),
+                                          style: const TextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                         ),
-                                      );
-                                    });
-                              },
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 10, bottom: 10),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 1,
-                                      child: Center(
-                                        child: Container(
-                                          color: Colors.yellow[100],
-                                          padding: const EdgeInsets.all(10),
-                                          child: Text(
-                                            "₹ " +
-                                                recommendedPlans[index]['amount']
-                                                    .toString(),
-                                            style: const TextStyle(
-                                              color: Colors.black,
-                                              fontWeight: FontWeight.bold,
-                                              overflow: TextOverflow.clip,
-                                            ),
+                                      ),
+                                    );
+                                  });
+                            },
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 10, bottom: 10),
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    flex: 1,
+                                    child: Center(
+                                      child: Container(
+                                        color: Colors.yellow[100],
+                                        padding: const EdgeInsets.all(10),
+                                        child: Text(
+                                          "₹ " +
+                                              recommendedPlans[index]['amount']
+                                                  .toString(),
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            overflow: TextOverflow.clip,
                                           ),
                                         ),
                                       ),
                                     ),
-                                    Expanded(
-                                      flex: 3,
+                                  ),
+                                  Expanded(
+                                    flex: 3,
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.grey[200],
+                                        boxShadow: [
+                                          BoxShadow(
+                                              color: Colors.grey[100]!,
+                                              offset: const Offset(0, 0),
+                                              spreadRadius: 2,
+                                              blurRadius: 2)
+                                        ],
+                                      ),
+                                      padding: const EdgeInsets.only(left: 30),
                                       child: Container(
+                                        padding: const EdgeInsets.all(8.0),
                                         decoration: BoxDecoration(
-                                          color: Colors.grey[200],
+                                          color: Colors.grey[100],
                                           boxShadow: [
                                             BoxShadow(
                                                 color: Colors.grey[100]!,
@@ -282,57 +306,48 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                 blurRadius: 2)
                                           ],
                                         ),
-                                        padding: const EdgeInsets.only(left: 30),
-                                        child: Container(
-                                          padding: const EdgeInsets.all(8.0),
-                                          decoration: BoxDecoration(
-                                            color: Colors.grey[100],
-                                            boxShadow: [
-                                              BoxShadow(
-                                                  color: Colors.grey[100]!,
-                                                  offset: const Offset(0, 0),
-                                                  spreadRadius: 2,
-                                                  blurRadius: 2)
-                                            ],
+                                        child: ListTile(
+                                          contentPadding:
+                                              const EdgeInsets.only(right: 20),
+                                          tileColor: Colors.grey[100],
+                                          trailing: Text(
+                                            recommendedPlans[index]['validity']
+                                                    .toString() +
+                                                " \ndays",
+                                            textAlign: TextAlign.center,
+                                            style: const TextStyle(
+                                              overflow: TextOverflow.clip,
+                                            ),
                                           ),
-                                          child: ListTile(
-                                            contentPadding:
-                                                const EdgeInsets.only(right: 20),
-                                            tileColor: Colors.grey[100],
-                                            trailing: Text(
-                                              recommendedPlans[index]['validity']
-                                                      .toString() +
-                                                  " \ndays",
-                                              textAlign: TextAlign.center,
-                                              style: const TextStyle(
-                                                overflow: TextOverflow.clip,
-                                              ),
+                                          title: Text(
+                                            recommendedPlans[index]['per_day'] ?
+                                            recommendedPlans[index]['credits']
+                                                .toString() +
+                                                " \ncredits/day ⚡" :
+                                            recommendedPlans[index]['credits']
+                                                .toString() +
+                                                " \ncredits ⚡",
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.bold,
+                                              overflow: TextOverflow.clip,
                                             ),
-                                            title: Text(
-                                              recommendedPlans[index]['credits']
-                                                      .toString() +
-                                                  " \ncredits ⚡",
-                                              style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                overflow: TextOverflow.clip,
-                                              ),
-                                            ),
-                                            subtitle: Text(
-                                              recommendedPlans[index]['details']
-                                                  .toString(),
-                                              style: const TextStyle(
-                                                overflow: TextOverflow.clip,
-                                                fontSize: 11,
-                                              ),
+                                          ),
+                                          subtitle: Text(
+                                            recommendedPlans[index]['details']
+                                                .toString(),
+                                            style: const TextStyle(
+                                              overflow: TextOverflow.clip,
+                                              fontSize: 11,
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
-                            );
+                            ),
+                          );
                         },
                       ),
                       ListView.builder(
@@ -427,6 +442,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                               title: Text(
+                                                monthlyPlans[index]['per_day'] ?
+                                                monthlyPlans[index]['credits']
+                                                    .toString() +
+                                                    " \ncredits/day ⚡" :
                                                 monthlyPlans[index]['credits']
                                                         .toString() +
                                                     " \ncredits ⚡",
@@ -533,12 +552,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                           contentPadding:
                                               const EdgeInsets.only(right: 20),
                                           tileColor: Colors.grey[100],
-                                          trailing: Text(
-                                            addonPlans[index]['validity']
-                                                    .toString() +
-                                                " \nvalidity",
+                                          trailing: const Text(
+                                            "Base plan\nvalidity",
                                             textAlign: TextAlign.center,
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),
