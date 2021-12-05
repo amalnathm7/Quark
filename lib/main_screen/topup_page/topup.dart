@@ -19,36 +19,49 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
       'details': 'Average 5 units per day at 120V.',
       'validity': 28,
       'credits': 140,
+      'per_day': false,
+    },
+    {
+      'amount': 200,
+      'details': '5 units per day at 120V.',
+      'validity': 28,
+      'credits': 5,
+      'per_day': true,
     },
     {
       'amount': 350,
       'details': 'Average 10 units per day at 120V.',
       'validity': 28,
       'credits': 280,
+      'per_day': false,
     },
     {
       'amount': 400,
       'details': 'Average 5 units per day at 120V.',
       'validity': 56,
       'credits': 280,
+      'per_day': false,
     },
     {
       'amount': 700,
       'details': 'Average 10 units per day at 120V.',
       'validity': 56,
       'credits': 560,
+      'per_day': false,
     },
     {
       'amount': 600,
       'details': 'Average 5 units per day at 120V.',
       'validity': 84,
       'credits': 420,
+      'per_day': false,
     },
     {
       'amount': 1050,
       'details': 'Average 10 units per day at 120V.',
       'validity': 84,
       'credits': 840,
+      'per_day': false,
     },
   ];
 
@@ -58,12 +71,14 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
       'details': 'Average 5 units per day at 120V.',
       'validity': 28,
       'credits': 140,
+      'per_day': false,
     },
     {
       'amount': 400,
       'details': 'Average 5 units per day at 120V.',
       'validity': 56,
       'credits': 280,
+      'per_day': false,
     },
   ];
 
@@ -71,25 +86,21 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
     {
       'amount': 50,
       'details': '25 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 25,
     },
     {
       'amount': 120,
       'details': '50 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 50,
     },
     {
       'amount': 250,
       'details': '100 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 100,
     },
     {
       'amount': 600,
       'details': '200 units add-on credits at 120V.',
-      'validity': 'Base plan',
       'credits': 200,
     },
   ];
@@ -309,8 +320,12 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           title: Text(
+                                            recommendedPlans[index]['per_day'] ?
                                             recommendedPlans[index]['credits']
-                                                    .toString() +
+                                                .toString() +
+                                                " \ncredits/day ⚡" :
+                                            recommendedPlans[index]['credits']
+                                                .toString() +
                                                 " \ncredits ⚡",
                                             style: const TextStyle(
                                               fontWeight: FontWeight.bold,
@@ -427,6 +442,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                               title: Text(
+                                                monthlyPlans[index]['per_day'] ?
+                                                monthlyPlans[index]['credits']
+                                                    .toString() +
+                                                    " \ncredits/day ⚡" :
                                                 monthlyPlans[index]['credits']
                                                         .toString() +
                                                     " \ncredits ⚡",
@@ -533,12 +552,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                           contentPadding:
                                               const EdgeInsets.only(right: 20),
                                           tileColor: Colors.grey[100],
-                                          trailing: Text(
-                                            addonPlans[index]['validity']
-                                                    .toString() +
-                                                " \nvalidity",
+                                          trailing: const Text(
+                                            "Base plan\nvalidity",
                                             textAlign: TextAlign.center,
-                                            style: const TextStyle(
+                                            style: TextStyle(
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),

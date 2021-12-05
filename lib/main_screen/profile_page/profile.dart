@@ -135,6 +135,9 @@ class ProfilePageState extends State<ProfilePage>
                       ),
                     ),
                   ),
+            const SizedBox(
+              height: 30,
+            ),
             SizedBox(
               width: 50,
               child: ClipRRect(
@@ -150,7 +153,7 @@ class ProfilePageState extends State<ProfilePage>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: const [
                   Text(
-                    "Save Energy\nFor All Life\n\n💡💡💡",
+                    "Save Energy\nFor All Life",
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 14,
