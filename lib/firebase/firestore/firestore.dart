@@ -7,7 +7,16 @@ class Firestore extends ChangeNotifier {
   DateTime today = DateTime.now();
   double todayUsage = 0;
   double monthUsage = 0;
-  List<double> hourlyUsage = [0, 0, 0, 0, 0, 0, 0, 0];
+  List<dynamic> hourlyUsage = [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+  ];
   int peakIndex = 0;
   Map<String, dynamic>? currentPlan;
   double remainingCredits = 0;
@@ -36,9 +45,9 @@ class Firestore extends ChangeNotifier {
                         : category == 'industrial'
                             ? 'industrial_plans'
                             : 'household_plans')
-            .snapshots()
+            .orderBy('amount').snapshots()
             .listen((value) {
-              monthlyPlans.clear();
+          monthlyPlans.clear();
 
           for (var element in value.docs) {
             monthlyPlans.add({
@@ -53,7 +62,7 @@ class Firestore extends ChangeNotifier {
 
           notifyListeners();
 
-          db.collection('add_on_plans').snapshots().listen((value) {
+          db.collection('add_on_plans').orderBy('amount').snapshots().listen((value) {
             addonPlans.clear();
 
             for (var element in value.docs) {
@@ -80,10 +89,10 @@ class Firestore extends ChangeNotifier {
           notifyListeners();
 
           currentPlan = snapshot.get('current_plan');
-          remainingCredits = snapshot.get('remaining_credits');
+          remainingCredits = snapshot.get('remaining_credits').toDouble();
 
           recommendedPlans.clear();
-          snapshot.get('recommended_plans').forEach((DocumentReference ref) {
+          snapshot.get('recommended_plans').forEach((ref) {
             ref.get().then((value) {
               recommendedPlans.add({
                 'id': value.id,
@@ -91,6 +100,7 @@ class Firestore extends ChangeNotifier {
                 'details': value.get('details'),
                 'validity': value.get('validity'),
                 'credits': value.get('credits'),
+                'per_day': value.get('per_day'),
               });
             });
           });
@@ -102,4 +112,34 @@ class Firestore extends ChangeNotifier {
   }
 
   updatePlan(Map plan) {}
+
+  /* addData() {
+    db.collection("users").doc(_user.uid).update({
+      'category': 'household',
+      'today_usage': 0.75,
+      'month_usage': 12.35,
+      'hourly_usage': [
+        0.0,
+        0.1,
+        0.25,
+        0.3,
+        0.45,
+        0.75,
+        0.85,
+        0.55,
+      ],
+      'current_plan': {
+        'amount': 200,
+        'validity': DateTime.now().add(const Duration(days: 28)),
+        'credits': 140,
+        'per_day': false,
+      },
+      'remaining_credits': 86,
+      'recommended_plans': [
+        db.collection("household_plans").doc("1gp8Y6f7D6j7MV1BgPGf"),
+        db.collection("household_plans").doc("fRxutb9Jd0Bmj9m41a9b"),
+        db.collection("household_plans").doc("oYLfUlsFNnAyNW0zAvjO"),
+      ],
+    });
+  } */
 }
