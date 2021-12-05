@@ -13,42 +13,88 @@ class _ElectricCarState extends State<ElectricCar> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top:30.0),
-              child: Container(
-                height: 50,
-                width:screenWidth ,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                    borderRadius: BorderRadius.circular(8),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black
-                            .withOpacity(.1),
-                        blurRadius: 60,
-                        spreadRadius: 1,
+    return Scaffold(
+      backgroundColor: Colors.black.withOpacity(.83),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Padding(
+          padding: const EdgeInsets.all(0),
+          child: Column(
+            children: [
+              Stack(
+                children: [
+                  Container(
+                    height: 300,
+                    width: screenWidth,
+                    child: Image.network("https://cdn.dribbble.com/users/3768353/screenshots/15134626/media/99196c9efa812cc1d6b448d589113fff.png?compress=1&resize=1600x1200"),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top:50.0,left: 15,right: 15),
+                    child: Container(
+                      height: 45,
+                      width:screenWidth ,
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                          borderRadius: BorderRadius.circular(8),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black
+                                  .withOpacity(.1),
+                              blurRadius: 60,
+                              spreadRadius: 1,
+                            ),
+                          ]
                       ),
-                    ]
-                ),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left:15.0,right: 15),
-                      child: Icon(CupertinoIcons.location_solid,size: 18,),
+                      child: Row(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.only(left:15.0,right: 8),
+                            child: Icon(CupertinoIcons.location_solid,size: 18,color: Colors.grey,),
+                          ),
+                          Container(
+                            height: 10,
+                            width: 2,
+                            decoration: BoxDecoration(
+                              color: Colors.grey,
+                              borderRadius: BorderRadius.circular(2)
+                            ),
+                          ),
+                          const Padding(
+
+                            padding: EdgeInsets.only(left:8.0),
+                            child: Text("Tkm College Of Engineering, Karikode, Kollam",style: TextStyle(
+                              fontWeight: FontWeight.bold,fontSize: 12,letterSpacing: .5,
+                              color: Colors.grey
+                            ),),
+                          ),
+                        ],
+                      ),
                     ),
-                    Text("Tkm College Of Engineering, Karikode, Kollam",style: TextStyle(
-                      fontWeight: FontWeight.bold,fontSize: 12,letterSpacing: .5
-                    ),),
-                  ],
-                ),
+                  ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 250),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 440,
+                          width: screenWidth,
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15))
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+
+
+                ],
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
