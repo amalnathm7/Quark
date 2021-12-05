@@ -1,7 +1,7 @@
 
 
 <div align="center">
-  <img src="screenshots/git1.png" width="1000">
+  <img src="assets/q.png" width="1000">
 </div>
 
 ###### made with <a href="https://flutter.dev/"> Flutter </a>
