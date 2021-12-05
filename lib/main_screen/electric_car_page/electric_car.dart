@@ -122,7 +122,7 @@ class _ElectricCarState extends State<ElectricCar> {
                                   ),
 
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 20.0),
+                                    padding: const EdgeInsets.only(top: 30.0),
                                     child: Container(
                                       height: 120,
                                       width: screenWidth,
@@ -155,7 +155,7 @@ class _ElectricCarState extends State<ElectricCar> {
                                           ),
 
                                           Container(
-                                            height: 30,
+                                            height: 40,
 
                                             child: Row(
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -192,44 +192,813 @@ class _ElectricCarState extends State<ElectricCar> {
                                                   ),
                                                 ]
                                             ),
-                                            child: Row(
-                                              children: [
-                                                
-                                              ],
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: SingleChildScrollView(
+                                                physics: const BouncingScrollPhysics(),
+                                                 scrollDirection: Axis.horizontal,
+                                                child: Row(
+                                                  children: [
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: const [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("9:00",style: TextStyle(
+                                                                      fontWeight: FontWeight.bold,
+                                                                      fontSize: 14,
+                                                                      color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                              width: 40,
+                                                                decoration: BoxDecoration(
+                                                                  color: Colors.black,
+                                                                  borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: const [
+                                                                    Text("12",style: TextStyle(
+                                                                      fontSize: 17,
+                                                                      fontWeight: FontWeight.bold,
+                                                                      color: Colors.white,
+                                                                      letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("11:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: [
+                                                                    Text("8",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("17:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: [
+                                                                    Text("15",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+
+
+                                                  ],
+                                                ),
+                                              ),
                                             ),
                                           ),
+
+
+
                                         ],
                                       ),
                                     ),
                                   ),
 
 
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 20.0),
-                                    child: Container(
-                                      height: 80,
-                                      width: screenWidth,
 
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 30.0),
+                                    child: Container(
+                                      height: 120,
+                                      width: screenWidth,
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+
+                                              Text("Glx punaloor",style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black
+                                              ),),
+
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right:8.0),
+                                                    child: Icon(CupertinoIcons.arrow_branch,size: 10,color: Colors.grey,),
+                                                  ),
+                                                  Text("10 km",style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.grey,
+                                                      fontSize: 12
+                                                  ),),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+
+                                          Container(
+                                            height: 40,
+
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text("Available",style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.grey,
+                                                ),),
+                                                Container(
+                                                  height: 2,
+                                                  width: screenWidth/1.3,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(2),
+                                                      color: Colors.grey.withOpacity(.5)
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+
+                                          Container(
+                                            height: 60,
+                                            width: screenWidth,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                color: Colors.white,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(.1),
+                                                    blurRadius: 90,
+                                                    spreadRadius: 1,
+                                                  ),
+                                                ]
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: SingleChildScrollView(
+                                                physics: const BouncingScrollPhysics(),
+                                                scrollDirection: Axis.horizontal,
+                                                child: Row(
+                                                  children: [
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: const [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("10:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: const [
+                                                                    Text("3",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("14:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: [
+                                                                    Text("1",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+
+
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+
+
+                                        ],
+                                      ),
                                     ),
                                   ),
 
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 20.0),
+                                    padding: const EdgeInsets.only(top: 30.0),
                                     child: Container(
-                                      height: 80,
+                                      height: 120,
                                       width: screenWidth,
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
 
+                                              Text("Kseb Ochira",style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black
+                                              ),),
+
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right:8.0),
+                                                    child: Icon(CupertinoIcons.arrow_branch,size: 10,color: Colors.grey,),
+                                                  ),
+                                                  Text("4 km",style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.grey,
+                                                      fontSize: 12
+                                                  ),),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+
+                                          Container(
+                                            height: 40,
+
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text("Available",style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.grey,
+                                                ),),
+                                                Container(
+                                                  height: 2,
+                                                  width: screenWidth/1.3,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(2),
+                                                      color: Colors.grey.withOpacity(.5)
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+
+                                          Container(
+                                            height: 60,
+                                            width: screenWidth,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                color: Colors.white,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(.1),
+                                                    blurRadius: 90,
+                                                    spreadRadius: 1,
+                                                  ),
+                                                ]
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: SingleChildScrollView(
+                                                physics: const BouncingScrollPhysics(),
+                                                scrollDirection: Axis.horizontal,
+                                                child: Row(
+                                                  children: [
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: const [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("11:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: const [
+                                                                    Text("3",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+                                                    
+
+
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+
+
+                                        ],
+                                      ),
                                     ),
                                   ),
 
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 20.0),
+                                    padding: const EdgeInsets.only(top: 30.0),
                                     child: Container(
-                                      height: 80,
+                                      height: 120,
                                       width: screenWidth,
+                                      child: Column(
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
 
+                                              Text("Jkf Varkala",style: TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.black
+                                              ),),
+
+                                              Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right:8.0),
+                                                    child: Icon(CupertinoIcons.arrow_branch,size: 10,color: Colors.grey,),
+                                                  ),
+                                                  Text("10 km",style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: Colors.grey,
+                                                      fontSize: 12
+                                                  ),),
+                                                ],
+                                              ),
+
+                                            ],
+                                          ),
+
+                                          Container(
+                                            height: 40,
+
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text("Available",style: TextStyle(
+                                                  fontSize: 10,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.grey,
+                                                ),),
+                                                Container(
+                                                  height: 2,
+                                                  width: screenWidth/1.3,
+                                                  decoration: BoxDecoration(
+                                                      borderRadius: BorderRadius.circular(2),
+                                                      color: Colors.grey.withOpacity(.5)
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+
+                                          Container(
+                                            height: 60,
+                                            width: screenWidth,
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(5),
+                                                color: Colors.white,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    color: Colors.black
+                                                        .withOpacity(.1),
+                                                    blurRadius: 90,
+                                                    spreadRadius: 1,
+                                                  ),
+                                                ]
+                                            ),
+                                            child: Padding(
+                                              padding: const EdgeInsets.all(8.0),
+                                              child: SingleChildScrollView(
+                                                physics: const BouncingScrollPhysics(),
+                                                scrollDirection: Axis.horizontal,
+                                                child: Row(
+                                                  children: [
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: const [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("10:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: const [
+                                                                    Text("1",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("13:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: [
+                                                                    Text("9",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(right: 10.0),
+                                                      child: Container(
+                                                        height: 40,
+                                                        width: 120,
+                                                        decoration: BoxDecoration(
+                                                          color: Colors.grey.withOpacity(.2),
+                                                          borderRadius: BorderRadius.circular(5),
+                                                        ),
+                                                        child: Padding(
+                                                          padding: const EdgeInsets.all(7.0),
+                                                          child: Row(
+                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                            children: [
+                                                              Container(
+                                                                width: 60,
+                                                                child: Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                  children: [
+                                                                    Icon(CupertinoIcons.clock_solid,size: 14,),
+                                                                    Text("17:00",style: TextStyle(
+                                                                        fontWeight: FontWeight.bold,
+                                                                        fontSize: 14,
+                                                                        color: Colors.black
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                              Container(
+                                                                height: 40,
+                                                                width: 40,
+                                                                decoration: BoxDecoration(
+                                                                    color: Colors.black,
+                                                                    borderRadius: BorderRadius.circular(5)
+                                                                ),
+                                                                child: Column(
+                                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                                                  children: [
+                                                                    Text("14",style: TextStyle(
+                                                                        fontSize: 17,
+                                                                        fontWeight: FontWeight.bold,
+                                                                        color: Colors.white,
+                                                                        letterSpacing: .8
+                                                                    ),),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+
+
+
+
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+
+
+
+                                        ],
+                                      ),
                                     ),
                                   ),
+
+
+
+
 
 
 
