@@ -56,10 +56,16 @@ class ProfilePageState extends State<ProfilePage>
                       ),
                     ],
                   ),
+
+
+
                   Container(
-                    padding: const EdgeInsets.all(20),
+                    height: 100,
+                    width: screenWidth,
+                    padding: const EdgeInsets.all(10),
                     child: Column(
                       children: [
+
                         Text(
                           _user.displayName!,
                           textAlign: TextAlign.center,
@@ -68,6 +74,7 @@ class ProfilePageState extends State<ProfilePage>
                             fontSize: 22,
                           ),
                         ),
+
                         Text(
                           _user.email!,
                           textAlign: TextAlign.center,
@@ -76,9 +83,8 @@ class ProfilePageState extends State<ProfilePage>
                             color: Colors.grey,
                           ),
                         ),
-                        const SizedBox(
-                          height: 10,
-                        ),
+
+
                         const Text(
                           "Household",
                           textAlign: TextAlign.center,
@@ -86,55 +92,22 @@ class ProfilePageState extends State<ProfilePage>
                             fontSize: 14,
                           ),
                         ),
+
                       ],
                     ),
                   ),
+
+
                 ],
               ),
             ),
-            _isLogOutClicked
-                ? const CupertinoActivityIndicator()
-                : Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15, right: 15, bottom: 30),
-                    child: OutlinedButton(
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        side: MaterialStateProperty.all(
-                          const BorderSide(
-                            color: Colors.grey,
-                          ),
-                        ),
-                      ),
-                      onPressed: () async {
-                        setState(() {
-                          _isLogOutClicked = true;
-                        });
-                        await Authentication().signOut();
-                        setState(() {
-                          _isLogOutClicked = false;
-                        });
-                      },
-                      child: TextButton.icon(
-                        icon: Icon(
-                          Icons.logout_sharp,
-                          color: Colors.grey[700],
-                        ),
-                        label: Text(
-                          "Log out",
-                          style: TextStyle(
-                              color: Colors.grey[700],
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold),
-                        ),
-                        onPressed: null,
-                      ),
-                    ),
-                  ),
+
+
+
+
+
+
+
             const SizedBox(
               height: 30,
             ),
@@ -182,6 +155,60 @@ class ProfilePageState extends State<ProfilePage>
                 ],
               ),
             ),
+            Container(
+              height: 30,
+            ),
+
+            _isLogOutClicked
+                ? const CupertinoActivityIndicator()
+                : Padding(
+              padding:
+              const EdgeInsets.only(left: 15, right: 15, bottom: 30),
+              child: Container(
+                height: 40,
+                width: screenWidth,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(6),
+                      ),
+                    ),
+                    overlayColor: MaterialStateProperty.all(Colors.white.withOpacity(.1)),
+                    backgroundColor: MaterialStateProperty.all(Colors.black),
+                    side: MaterialStateProperty.all(
+                      const BorderSide(
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  onPressed: () async {
+                    setState(() {
+                      _isLogOutClicked = true;
+                    });
+                    await Authentication().signOut();
+                    setState(() {
+                      _isLogOutClicked = false;
+                    });
+                  },
+                  child: TextButton.icon(
+                    icon: Icon(
+                      Icons.logout_sharp,
+                      color: Colors.grey,
+                    ),
+                    label: Text(
+                      "Log out",
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    onPressed: null,
+                  ),
+                ),
+              ),
+            ),
+
           ],
         ),
       ),
