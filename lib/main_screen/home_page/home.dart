@@ -1310,49 +1310,9 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 15.0, left: 1, right: 1),
-                                child: Container(
-                                  height: 100,
-                                  width: screenWidth / 1.1,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(.09),
-                                        spreadRadius: 1,
-                                        blurRadius: 90,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 15.0, left: 1, right: 1),
-                                child: Container(
-                                  height: 100,
-                                  width: screenWidth / 1.1,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    top: 15.0, left: 1, right: 1),
-                                child: Container(
-                                  height: 100,
-                                  width: screenWidth / 1.1,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                              ),
+                            
+
+
                             ],
                           ),
                         ),
