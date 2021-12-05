@@ -23,7 +23,7 @@ class _ElectricCarState extends State<ElectricCar> {
             children: [
               Stack(
                 children: [
-                  Container(
+                  SizedBox(
                     height: 300,
                     width: screenWidth,
                     child: Image.network("https://cdn.dribbble.com/users/3768353/screenshots/15134626/media/99196c9efa812cc1d6b448d589113fff.png?compress=1&resize=1600x1200"),
@@ -78,12 +78,22 @@ class _ElectricCarState extends State<ElectricCar> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 440,
+                        AnimatedContainer(
+                          duration: Duration(seconds: 2),
+                          height: screenHeight/1.75,
                           width: screenWidth,
                           decoration: const BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15))
+                          ),
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Container(
+                                  
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
