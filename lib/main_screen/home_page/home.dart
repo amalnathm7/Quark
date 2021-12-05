@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Padding(
-          padding: const EdgeInsets.only(left: 15, right: 15, top: 55),
+          padding: const EdgeInsets.only(left: 15, right: 15, top: 40),
           child: Stack(
             children: [
               Column(
@@ -624,7 +624,8 @@ class _HomePageState extends State<HomePage> {
                     height: screenHeight / 5,
                     width: screenWidth,
                     decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(.05),
+                       color: Colors.white,
+                      border: Border.all(width: 1.5,color: Colors.grey.withOpacity(.15)),
                       // gradient:LinearGradient(
                       //   begin: Alignment.topRight,
                       //     end: Alignment.bottomLeft,
@@ -797,9 +798,9 @@ class _HomePageState extends State<HomePage> {
                               decoration: BoxDecoration(
                                   boxShadow: [
                                     BoxShadow(
-                                      color: Colors.black.withOpacity(.02),
+                                      color: Colors.black.withOpacity(.2),
                                       spreadRadius: 1,
-                                      blurRadius: 80,
+                                      blurRadius: 50,
                                     ),
                                   ],
                                 color: Colors.white,
