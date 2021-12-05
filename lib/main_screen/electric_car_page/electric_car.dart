@@ -79,7 +79,7 @@ class _ElectricCarState extends State<ElectricCar> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         AnimatedContainer(
-                          duration: Duration(seconds: 2),
+                          duration: const Duration(seconds: 2),
                           height: screenHeight/1.75,
                           width: screenWidth,
                           decoration: const BoxDecoration(
@@ -87,12 +87,39 @@ class _ElectricCarState extends State<ElectricCar> {
                             borderRadius: BorderRadius.only(topRight: Radius.circular(15),topLeft: Radius.circular(15))
                           ),
                           child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Container(
-                                  
-                                ),
-                              ],
+                            child: Padding(
+                              padding: const EdgeInsets.only(left: 10,right: 10,top: 10),
+                              child: Column(
+                                children: [
+                                  Container(
+                                    height: 60,
+                                    width: screenWidth,
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      children: [
+                                        Container(
+                                          height: 15,
+                                          width: 4,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(2),
+                                            color: Colors.black.withOpacity(.7),
+                                          ),
+                                        ),
+
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 14.0),
+                                          child: Text("Nearby Charging Station",style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.black.withOpacity(.8),
+                                            fontWeight: FontWeight.bold,
+                                          ),),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
