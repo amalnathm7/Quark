@@ -10,6 +10,12 @@ class ElectricCar extends StatefulWidget {
 class _ElectricCarState extends State<ElectricCar> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+
+        ],
+      ),
+    );
   }
 }
