@@ -941,6 +941,195 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                               ),
+                              Container(
+                                height:10,
+                              ),
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
+
+                                ),
+                              ),
+
+                              Container(
+                                height:15,
+                              ),
+
+
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(left:8.0,right:8,top:8,bottom: 8),
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          height: 100,
+                                          width: screenWidth/4,
+                                          child: Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+
+                                              Container(
+                                                height: 5,
+                                                width: 5,
+                                                decoration: const BoxDecoration(
+                                                  shape: BoxShape.circle,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+
+                                              Container(
+                                                height:  screenWidth/8,
+                                                width: screenWidth/8,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(10),
+                                                  color: Colors.black,
+                                                ),
+                                                child: ClipRRect(
+                                                    borderRadius: BorderRadius.circular(10),
+                                                    child: Lottie.network("https://assets8.lottiefiles.com/packages/lf20_isk1zq7k.json")),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                         Padding(
+                                           padding: const EdgeInsets.only(top:20.0),
+                                           child: Container(
+                                             height:100 ,
+                                             width: screenWidth/1.8,
+                                             child: Column(
+                                               children: [
+                                                 Row(
+                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                   children: [
+                                                     Text("Load Shedding",style: TextStyle(
+                                                       fontWeight: FontWeight.bold,
+                                                       fontSize: 15,
+                                                       color: Colors.black,
+                                                     ),),
+
+                                                     Row(
+                                                       children: [
+                                                         Padding(
+                                                           padding: const EdgeInsets.only(right:8.0),
+                                                           child: Container(
+                                                             height: 7,
+                                                             width: 2,
+                                                             decoration: BoxDecoration(
+                                                               color: Colors.grey,
+                                                               borderRadius: BorderRadius.circular(10),
+                                                             ),
+                                                           ),
+                                                         ),
+                                                         Text("10:12",style: TextStyle(
+                                                           fontSize: 10,
+                                                           fontWeight: FontWeight.bold,
+                                                           color: Colors.grey,
+                                                           letterSpacing: .8
+                                                         ),),
+                                                       ],
+                                                     ),
+                                                   ],
+                                                 ),
+
+                                                 Container(
+                                                   height: 10,
+                                                 ),
+                                                 Row(
+                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                   children: [
+
+
+
+                                                     Row(
+                                                       children: [
+                                                         Icon(CupertinoIcons.clock_solid,size: 10,),
+                                                         Padding(
+                                                           padding: const EdgeInsets.only(left:8.0),
+                                                           child: Text("3:00 - 4:00 PM",style: TextStyle(
+                                                             fontWeight: FontWeight.bold,
+                                                             fontSize: 12,
+                                                             color: Colors.black.withOpacity(.8),
+
+                                                           ),),
+                                                         ),
+                                                       ],
+                                                     ),
+
+
+
+                                             Row(
+                                               children: [
+                                                 Icon(CupertinoIcons.calendar,size: 10,),
+                                                 Padding(
+                                                   padding: const EdgeInsets.only(left:8.0),
+                                                   child: Text("4 Dec 2021",style: TextStyle(
+                                                     fontWeight: FontWeight.bold,
+                                                     fontSize: 12,
+                                                     color: Colors.black.withOpacity(.8),
+                                                   ),
+                                                   ),
+                                                 ),
+                                               ],
+                                             ),
+
+                                                   ],
+                                                 ),
+
+                                               ],
+                                             ),
+                                           ),
+                                         ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+
+
+                              Padding(
+                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
+                                child: Container(
+                                  height: 100,
+                                  width: screenWidth/1.1,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(.1),
+                                        spreadRadius: 1,
+                                        blurRadius: 90,
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+
+
 
                               Padding(
                                 padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
@@ -982,65 +1171,6 @@ class _HomePageState extends State<HomePage> {
                               ),
 
 
-                              Padding(
-                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
-                                child: Container(
-                                  height: 100,
-                                  width: screenWidth/1.1,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(.1),
-                                        spreadRadius: 1,
-                                        blurRadius: 90,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-
-
-
-                              Padding(
-                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
-                                child: Container(
-                                  height: 100,
-                                  width: screenWidth/1.1,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(.1),
-                                        spreadRadius: 1,
-                                        blurRadius: 90,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-
-
-                              Padding(
-                                padding: const EdgeInsets.only(top:15.0,left: 1,right: 1),
-                                child: Container(
-                                  height: 100,
-                                  width: screenWidth/1.1,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(10),
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Colors.black.withOpacity(.1),
-                                        spreadRadius: 1,
-                                        blurRadius: 90,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
                             ],
                           ),
                         ),
