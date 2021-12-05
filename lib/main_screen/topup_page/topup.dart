@@ -119,46 +119,50 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    _searchClicked
-                        ? Container(
-                            width: MediaQuery.of(context).size.width / 1.25,
-                            padding: const EdgeInsets.only(
-                              left: 15,
-                            ),
-                            child: TextField(
-                              autofocus: true,
-                              decoration: InputDecoration(
-                                hintText: "Enter amount (in Rs.)",
-                                contentPadding: const EdgeInsets.only(
-                                  left: 20,
+                    AnimatedSwitcher(
+                      duration: const Duration(milliseconds: 300),
+                      child: _searchClicked
+                          ? Container(
+                              width: MediaQuery.of(context).size.width / 1.25,
+                              padding: const EdgeInsets.only(
+                                left: 15,
+                              ),
+                              child: TextField(
+                                autofocus: true,
+                                decoration: InputDecoration(
+                                  hintText: "Enter amount (in Rs.)",
+                                  contentPadding: const EdgeInsets.only(
+                                    left: 20,
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.grey[300]!)),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Colors.grey[700]!)),
                                 ),
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.grey[300]!)),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Colors.grey[700]!)),
+                                keyboardType: TextInputType.number,
                               ),
-                              keyboardType: TextInputType.number,
-                            ),
-                          )
-                        : Padding(
-                            padding: const EdgeInsets.only(
-                              left: 20,
-                            ),
-                            child: Text(
-                              _user.displayName == null
-                                  ? "Recharge Plans\nfor " + _user.email!
-                                  : "Recharge Plans\nfor " + _user.displayName!,
-                              textAlign: TextAlign.start,
-                              style: const TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 24,
-                                overflow: TextOverflow.clip,
+                            )
+                          : Padding(
+                              padding: const EdgeInsets.only(
+                                left: 20,
+                              ),
+                              child: Text(
+                                _user.displayName == null
+                                    ? "Recharge Plans\nfor " + _user.email!
+                                    : "Recharge Plans\nfor " +
+                                        _user.displayName!,
+                                textAlign: TextAlign.start,
+                                style: const TextStyle(
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
+                                  overflow: TextOverflow.clip,
+                                ),
                               ),
                             ),
-                          ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(
                         right: 20,
