@@ -209,7 +209,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                     flex: 1,
                                     child: Center(
                                       child: Container(
-                                        color: Colors.yellow[100],
+                                        color: Colors.black,
                                         padding: const EdgeInsets.all(10),
                                         child: Text(
                                           "₹ " +
@@ -219,7 +219,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                       ['amount']
                                                   .toString(),
                                           style: const TextStyle(
-                                            color: Colors.black,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                             overflow: TextOverflow.clip,
                                           ),
@@ -360,7 +360,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                     flex: 1,
                                     child: Center(
                                       child: Container(
-                                        color: Colors.yellow[100],
+                                        color: Colors.black,
                                         padding: const EdgeInsets.all(10),
                                         child: Text(
                                           "₹ " +
@@ -368,7 +368,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                   .monthlyPlans[index]['amount']
                                                   .toString(),
                                           style: const TextStyle(
-                                            color: Colors.black,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                             overflow: TextOverflow.clip,
                                           ),
@@ -499,7 +499,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                     flex: 1,
                                     child: Center(
                                       child: Container(
-                                        color: Colors.yellow[100],
+                                        color: Colors.black,
                                         padding: const EdgeInsets.all(10),
                                         child: Text(
                                           "₹ " +
@@ -507,7 +507,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                   .addonPlans[index]['amount']
                                                   .toString(),
                                           style: const TextStyle(
-                                            color: Colors.black,
+                                            color: Colors.white,
                                             fontWeight: FontWeight.bold,
                                             overflow: TextOverflow.clip,
                                           ),
