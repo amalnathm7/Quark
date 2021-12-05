@@ -692,22 +692,29 @@ class _HomePageState extends State<HomePage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Text(
-                                            MyApp.db.remainingCredits
-                                                .toString(),
-                                            overflow: TextOverflow.ellipsis,
-                                            style: const TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 55,
-                                                color: Colors.black),
+                                          SizedBox(
+                                            width: 250,
+                                            child: Text(
+                                              MyApp.db.remainingCredits
+                                                  .toString(),
+                                              overflow: TextOverflow.ellipsis,
+                                              style: const TextStyle(
+                                                  fontWeight: FontWeight.bold,
+                                                  fontSize: 55,
+                                                  color: Colors.black),
+                                            ),
                                           ),
                                           Expanded(
                                             child: Text(
-                                              "Remaining out of " +
-                                                  MyApp.db
-                                                      .currentPlan!['credits']
-                                                      .toString() +
-                                                  " credits",
+                                              MyApp.db.currentPlan == null
+                                                  ? "Remaining out of 0 credits"
+                                                  : "Remaining out of " +
+                                                      MyApp
+                                                          .db
+                                                          .currentPlan![
+                                                              'credits']
+                                                          .toString() +
+                                                      " credits",
                                               overflow: TextOverflow.clip,
                                               style: const TextStyle(
                                                   fontWeight: FontWeight.bold,
@@ -734,8 +741,15 @@ class _HomePageState extends State<HomePage> {
                                         children: [
                                           Container(
                                             height: 30,
-                                            width: (((screenWidth / 2) / 1725) *
-                                                (1500 * (15) / 100)),
+                                            width: MyApp.db.currentPlan == null
+                                                ? 0
+                                                : (((screenWidth / 2) /
+                                                        (MyApp.db.currentPlan![
+                                                                'credits'] *
+                                                            1.15)) *
+                                                    (MyApp.db.currentPlan![
+                                                            'credits'] *
+                                                        0.15)),
                                             decoration: BoxDecoration(
                                                 color:
                                                     Colors.red.withOpacity(.8),
@@ -755,14 +769,16 @@ class _HomePageState extends State<HomePage> {
                                                 Curves.fastLinearToSlowEaseIn,
                                             height: 30,
                                             width: graphAnimated
-                                                ? (((screenWidth / 2) /
-                                                        MyApp.db.currentPlan![
-                                                            'credits'] *
-                                                        1.15) *
-                                                    (MyApp.db.currentPlan![
-                                                            'credits'] -
-                                                        MyApp.db
-                                                            .remainingCredits))
+                                                ? MyApp.db.currentPlan == null
+                                                    ? 0
+                                                    : ((screenWidth / 2) /
+                                                            (MyApp.db.currentPlan![
+                                                                    'credits'] *
+                                                                1.15)) *
+                                                        (MyApp.db.currentPlan![
+                                                                'credits'] -
+                                                            MyApp.db
+                                                                .remainingCredits)
                                                 : 0,
                                             decoration: BoxDecoration(
                                               color: Colors.black,
@@ -838,9 +854,11 @@ class _HomePageState extends State<HomePage> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Text(
-                                    "Plan " +
-                                        MyApp.db.currentPlan!['amount']
-                                            .toString(),
+                                    MyApp.db.currentPlan == null
+                                        ? "Plan NIL"
+                                        : "Plan " +
+                                            MyApp.db.currentPlan!['amount']
+                                                .toString(),
                                     style: const TextStyle(
                                       fontSize: 13,
                                       fontWeight: FontWeight.bold,
@@ -868,12 +886,16 @@ class _HomePageState extends State<HomePage> {
                                           MainAxisAlignment.center,
                                       children: [
                                         Text(
-                                          "Validity  :  " +
-                                              DateFormat.yMMMMd('en_US')
-                                                  .format(MyApp.db
-                                                      .currentPlan!['validity']
-                                                      .toDate())
-                                                  .toString(),
+                                          MyApp.db.currentPlan == null
+                                              ? "Validity  :  NIL"
+                                              : "Validity  :  " +
+                                                  DateFormat.yMMMMd('en_US')
+                                                      .format(MyApp
+                                                          .db
+                                                          .currentPlan![
+                                                              'validity']
+                                                          .toDate())
+                                                      .toString(),
                                           style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             fontSize: 10,
