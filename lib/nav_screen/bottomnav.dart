@@ -1,8 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
-import 'package:quark/firebase/authentication/auth.dart';
+import 'package:quark/main.dart';
 import 'package:quark/main_screen/electric_car_page/electric_car.dart';
 import 'package:quark/main_screen/home_page/home.dart';
 import 'package:quark/main_screen/profile_page/profile.dart';
@@ -19,6 +18,23 @@ class _NavBarNewState extends State<NavBarNew> {
   int _selectedIndex = 0;
   final PageController _controllerPage = PageController();
   bool notify = false;
+
+  @override
+  void initState() {
+    MyApp.db.listen();
+    MyApp.db.addListener(listener);
+    super.initState();
+  }
+
+  void listener() async {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    MyApp.db.removeListener(listener);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:quark/main.dart';
 
 class TopUpPage extends StatefulWidget {
   const TopUpPage({Key? key}) : super(key: key);
@@ -13,97 +15,22 @@ class TopUpPage extends StatefulWidget {
 class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
   final _user = FirebaseAuth.instance.currentUser!;
   bool _searchClicked = false;
-  List monthlyPlans = [
-    {
-      'amount': 200,
-      'details': 'Average 5 units per day at 120V.',
-      'validity': 28,
-      'credits': 140,
-      'per_day': false,
-    },
-    {
-      'amount': 200,
-      'details': '5 units per day at 120V.',
-      'validity': 28,
-      'credits': 5,
-      'per_day': true,
-    },
-    {
-      'amount': 350,
-      'details': 'Average 10 units per day at 120V.',
-      'validity': 28,
-      'credits': 280,
-      'per_day': false,
-    },
-    {
-      'amount': 400,
-      'details': 'Average 5 units per day at 120V.',
-      'validity': 56,
-      'credits': 280,
-      'per_day': false,
-    },
-    {
-      'amount': 700,
-      'details': 'Average 10 units per day at 120V.',
-      'validity': 56,
-      'credits': 560,
-      'per_day': false,
-    },
-    {
-      'amount': 600,
-      'details': 'Average 5 units per day at 120V.',
-      'validity': 84,
-      'credits': 420,
-      'per_day': false,
-    },
-    {
-      'amount': 1050,
-      'details': 'Average 10 units per day at 120V.',
-      'validity': 84,
-      'credits': 840,
-      'per_day': false,
-    },
-  ];
 
-  List recommendedPlans = [
-    {
-      'amount': 200,
-      'details': 'Average 5 units per day at 120V.',
-      'validity': 28,
-      'credits': 140,
-      'per_day': false,
-    },
-    {
-      'amount': 400,
-      'details': 'Average 5 units per day at 120V.',
-      'validity': 56,
-      'credits': 280,
-      'per_day': false,
-    },
-  ];
+  @override
+  void initState() {
+    super.initState();
+    MyApp.db.addListener(listener);
+  }
 
-  List addonPlans = [
-    {
-      'amount': 50,
-      'details': '25 units add-on credits at 120V.',
-      'credits': 25,
-    },
-    {
-      'amount': 120,
-      'details': '50 units add-on credits at 120V.',
-      'credits': 50,
-    },
-    {
-      'amount': 250,
-      'details': '100 units add-on credits at 120V.',
-      'credits': 100,
-    },
-    {
-      'amount': 600,
-      'details': '200 units add-on credits at 120V.',
-      'credits': 200,
-    },
-  ];
+  void listener() {
+    setState(() {});
+  }
+
+  @override
+  void dispose() {
+    MyApp.db.removeListener(listener);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +160,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                     physics: const BouncingScrollPhysics(),
                     children: [
                       ListView.builder(
-                        itemCount: recommendedPlans.length,
+                        itemCount: MyApp.db.recommendedPlans.length,
                         physics: const BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
                           return GestureDetector(
@@ -244,9 +171,13 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                     return Center(
                                       child: SizedBox(
                                         child: Text(
-                                          "Pay ₹ " +
-                                              recommendedPlans[index]['amount']
-                                                  .toString(),
+                                          "Pay ₹" +
+                                              (MyApp.db.recommendedPlans[index]
+                                                          ['amount'] +
+                                                      200)
+                                                  .toString() +
+                                              "\n\n\n(Base charge (₹200) + Plan amount)",
+                                          textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
@@ -269,7 +200,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                         padding: const EdgeInsets.all(10),
                                         child: Text(
                                           "₹ " +
-                                              recommendedPlans[index]['amount']
+                                              MyApp
+                                                  .db
+                                                  .recommendedPlans[index]
+                                                      ['amount']
                                                   .toString(),
                                           style: const TextStyle(
                                             color: Colors.black,
@@ -311,7 +245,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                               const EdgeInsets.only(right: 20),
                                           tileColor: Colors.grey[100],
                                           trailing: Text(
-                                            recommendedPlans[index]['validity']
+                                            MyApp
+                                                    .db
+                                                    .recommendedPlans[index]
+                                                        ['validity']
                                                     .toString() +
                                                 " \ndays",
                                             textAlign: TextAlign.center,
@@ -320,20 +257,30 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           title: Text(
-                                            recommendedPlans[index]['per_day'] ?
-                                            recommendedPlans[index]['credits']
-                                                .toString() +
-                                                " \ncredits/day ⚡" :
-                                            recommendedPlans[index]['credits']
-                                                .toString() +
-                                                " \ncredits ⚡",
+                                            MyApp.db.recommendedPlans[index]
+                                                    ['per_day']
+                                                ? MyApp
+                                                        .db
+                                                        .recommendedPlans[index]
+                                                            ['credits']
+                                                        .toString() +
+                                                    " \ncredits/day ⚡"
+                                                : MyApp
+                                                        .db
+                                                        .recommendedPlans[index]
+                                                            ['credits']
+                                                        .toString() +
+                                                    " \ncredits ⚡",
                                             style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                               overflow: TextOverflow.clip,
                                             ),
                                           ),
                                           subtitle: Text(
-                                            recommendedPlans[index]['details']
+                                            MyApp
+                                                .db
+                                                .recommendedPlans[index]
+                                                    ['details']
                                                 .toString(),
                                             style: const TextStyle(
                                               overflow: TextOverflow.clip,
@@ -351,20 +298,32 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                         },
                       ),
                       ListView.builder(
-                        itemCount: monthlyPlans.length,
+                        itemCount: MyApp.db.monthlyPlans.length,
                         physics: const BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
                           return GestureDetector(
                             onTap: () {
+                              FirebaseFirestore.instance
+                                  .collection("add_on_plans")
+                                  .doc()
+                                  .set({
+                                'amount': 250,
+                                'details': '200 credits add-on to base plan.',
+                                'credits': 200,
+                              });
                               showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
                                     return Center(
                                       child: SizedBox(
                                         child: Text(
-                                          "Pay ₹ " +
-                                              monthlyPlans[index]['amount']
-                                                  .toString(),
+                                          "Pay ₹" +
+                                              (MyApp.db.monthlyPlans[index]
+                                                          ['amount'] +
+                                                      300)
+                                                  .toString() +
+                                              "\n\n\n(Base charge (₹300) + Plan amount)",
+                                          textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
@@ -387,7 +346,8 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                         padding: const EdgeInsets.all(10),
                                         child: Text(
                                           "₹ " +
-                                              monthlyPlans[index]['amount']
+                                              MyApp.db
+                                                  .monthlyPlans[index]['amount']
                                                   .toString(),
                                           style: const TextStyle(
                                             color: Colors.black,
@@ -433,7 +393,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                       right: 20),
                                               tileColor: Colors.grey[100],
                                               trailing: Text(
-                                                monthlyPlans[index]['validity']
+                                                MyApp
+                                                        .db
+                                                        .monthlyPlans[index]
+                                                            ['validity']
                                                         .toString() +
                                                     " \ndays",
                                                 textAlign: TextAlign.center,
@@ -442,20 +405,30 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                                 ),
                                               ),
                                               title: Text(
-                                                monthlyPlans[index]['per_day'] ?
-                                                monthlyPlans[index]['credits']
-                                                    .toString() +
-                                                    " \ncredits/day ⚡" :
-                                                monthlyPlans[index]['credits']
-                                                        .toString() +
-                                                    " \ncredits ⚡",
+                                                MyApp.db.monthlyPlans[index]
+                                                        ['per_day']
+                                                    ? MyApp
+                                                            .db
+                                                            .monthlyPlans[index]
+                                                                ['credits']
+                                                            .toString() +
+                                                        " \ncredits/day ⚡"
+                                                    : MyApp
+                                                            .db
+                                                            .monthlyPlans[index]
+                                                                ['credits']
+                                                            .toString() +
+                                                        " \ncredits ⚡",
                                                 style: const TextStyle(
                                                   fontWeight: FontWeight.bold,
                                                   overflow: TextOverflow.clip,
                                                 ),
                                               ),
                                               subtitle: Text(
-                                                monthlyPlans[index]['details']
+                                                MyApp
+                                                    .db
+                                                    .monthlyPlans[index]
+                                                        ['details']
                                                     .toString(),
                                                 style: const TextStyle(
                                                   overflow: TextOverflow.clip,
@@ -475,7 +448,7 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                         },
                       ),
                       ListView.builder(
-                        itemCount: addonPlans.length,
+                        itemCount: MyApp.db.addonPlans.length,
                         physics: const BouncingScrollPhysics(),
                         itemBuilder: (context, index) {
                           return GestureDetector(
@@ -486,9 +459,11 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                     return Center(
                                       child: SizedBox(
                                         child: Text(
-                                          "Pay ₹ " +
-                                              addonPlans[index]['amount']
+                                          "Pay ₹" +
+                                              MyApp.db
+                                                  .addonPlans[index]['amount']
                                                   .toString(),
+                                          textAlign: TextAlign.center,
                                           style: const TextStyle(
                                             fontSize: 24,
                                             fontWeight: FontWeight.bold,
@@ -511,7 +486,8 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                         padding: const EdgeInsets.all(10),
                                         child: Text(
                                           "₹ " +
-                                              addonPlans[index]['amount']
+                                              MyApp.db
+                                                  .addonPlans[index]['amount']
                                                   .toString(),
                                           style: const TextStyle(
                                             color: Colors.black,
@@ -560,7 +536,10 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           title: Text(
-                                            addonPlans[index]['credits']
+                                            MyApp
+                                                    .db
+                                                    .addonPlans[index]
+                                                        ['credits']
                                                     .toString() +
                                                 " \ncredits ⚡",
                                             style: const TextStyle(
@@ -569,7 +548,8 @@ class _TopUpPageState extends State<TopUpPage> with TickerProviderStateMixin {
                                             ),
                                           ),
                                           subtitle: Text(
-                                            addonPlans[index]['details']
+                                            MyApp
+                                                .db.addonPlans[index]['details']
                                                 .toString(),
                                             style: const TextStyle(
                                               overflow: TextOverflow.clip,
