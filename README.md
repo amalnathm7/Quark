@@ -22,10 +22,10 @@ Quark is a mobile application for customers to monitor their daily allocated pow
  <div></div>
 
 ## Requirements🎫
-###### for runing this code
-- [x] Android Studio running on windows/mac os
-- [x] Flutter 2.0 or higher set up
-- [x] Android Phone/Emulator 
+###### for running this code
+- [x] Android Studio running on Windows/Mac OS
+- [x] Flutter 2.0 or higher setup
+- [x] Android Phone/Emulator
 
 ## Get It🎊
 
