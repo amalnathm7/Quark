@@ -9,7 +9,7 @@
 Quark is a mobile application for customers to monitor their daily allocated power and usage. The data from the smart meters are displayed through Quark from anywhere across the world. With this, customers can easily view total pulse, total units and total costs of the power they consumed. Getting control over energy consumption is the best benefit of Quark. With accurate information on power consumption customers could develop good energy habits.
 
 
-## Features ✨
+## Features✨
 
 * Providing reliable and fault tolerant data collection.
 * Advanced, customizable data visualization.
@@ -21,19 +21,19 @@ Quark is a mobile application for customers to monitor their daily allocated pow
 
  <div></div>
 
-## Requirements 🎫
+## Requirements🎫
 ###### for running this code
 - [x] Android Studio running on Windows/Mac OS
 - [x] Flutter 2.0 or higher setup
 - [x] Android Phone/Emulator
 
-## Get It 🎊
+## Get It🎊
 
 ##### android app 
 <a href='//com-example-multicalculator.en.uptodown.com/android' title='Download Quark' >       
 
   
-## Contribute ⚽
+## Contribute⚽
 
 Feel free to submit issues and enhancement requests. 🤗
 
