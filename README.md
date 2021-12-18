@@ -4,7 +4,7 @@
   <img src="assets/q.png" width="1000">
 </div>
 
-###### made with <a href="https://flutter.dev/"> Flutter </a>
+###### Made with <a href="https://flutter.dev/"> Flutter </a>
 # Quark 
 Quark is a mobile application for customers to monitor their daily allocated power and usage. The data from the smart meters are displayed through Quark from anywhere across the world. With this, customers can easily view total pulse, total units and total costs of the power they consumed. Getting control over energy consumption is the best benefit of Quark. With accurate information on power consumption customers could develop good energy habits.
 
