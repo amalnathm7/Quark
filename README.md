@@ -37,7 +37,7 @@ Quark is a mobile application for customers to monitor their daily allocated pow
 
 
 
-## Contribute ⚽
+## Contribute⚽
 
 Feel free to submit issues and enhancement requests. 🤗
 
